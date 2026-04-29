@@ -1,0 +1,79 @@
+# ================================
+# PERINATALKG .gitignore
+# ================================
+
+# === Dados Sensíveis (LGPD) ===
+data/raw/sinasc/*.dbc
+data/raw/sinasc/*.dbf
+data/raw/sim/*.dbc
+data/raw/sim/*.dbf
+data/linkage/*_nominais.parquet
+
+# === Dados Grandes ===
+*.parquet
+data/processed/*.parquet
+data/linked/*.parquet
+ontology/dumps/*.ttl
+ontology/dumps/*.nt
+ontology/dumps/*.rdf
+
+# EXCEÇÕES: manter samples pequenos
+!data_samples/*.parquet
+!data_samples/*.ttl
+
+# === Neo4j ===
+neo4j/
+*.db
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+climaterna_env/
+*.egg-info/
+dist/
+build/
+
+# === Logs ===
+*.log
+logs/
+
+# === Credenciais ===
+.env
+.env.*
+credentials/
+*.key
+*.pem
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Temporários ===
+*.tmp
+*.bak
+*.cache
+.pytest_cache/
+
+# === Jupyter ===
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# === RDF Temporários ===
+*.ttl.tmp
+*.rdf.tmp
+
+# === Fuseki Data ===
+fuseki-data/
+tdb2/
