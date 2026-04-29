@@ -1,20 +1,21 @@
 #!/bin/bash
-# Script para ativar ambiente ClimaternaKG
+# PerinatalKG Environment Activation
 
-source ~/Projects/climaterna/climaterna_env/bin/activate
-source ~/Projects/climaterna/.env
+VENV_PATH="$HOME/Projects/perinatalkg/climaterna_env"
 
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🌍 ClimaternaKG Environment Activated"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Python: $(python --version)"
-echo "Working Directory: $(pwd)"
-echo "Neo4j Status:"
-sudo systemctl status neo4j --no-pager | head -3
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
-echo "Comandos úteis:"
-echo "  jupyter notebook    - Iniciar Jupyter"
-echo "  neo4j status        - Ver status do Neo4j"
-echo "  neo4j start/stop    - Controlar Neo4j"
-echo ""
+if [ ! -d "$VENV_PATH" ]; then
+    echo "❌ Virtual environment not found!"
+    echo "   Expected: $VENV_PATH"
+    echo ""
+    echo "Create it with:"
+    echo "  python3 -m venv $VENV_PATH"
+    echo "  source $VENV_PATH/bin/activate"
+    echo "  pip install -r requirements.txt"
+    exit 1
+fi
+
+source "$VENV_PATH/bin/activate"
+
+echo "✅ PerinatalKG environment activated!"
+echo "   Python: $(which python)"
+echo "   Path: $(pwd)"
