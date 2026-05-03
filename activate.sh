@@ -4,14 +4,11 @@
 VENV_PATH="$HOME/Projects/perinatalkg/climaterna_env"
 
 if [ ! -d "$VENV_PATH" ]; then
-    echo "❌ Virtual environment not found!"
-    echo "   Expected: $VENV_PATH"
+    echo "❌ Virtual environment not found at: $VENV_PATH"
     echo ""
-    echo "Create it with:"
-    echo "  python3 -m venv $VENV_PATH"
-    echo "  source $VENV_PATH/bin/activate"
-    echo "  pip install -r requirements.txt"
-    exit 1
+    echo "Creating new environment..."
+    python3 -m venv "$VENV_PATH"
+    echo "✅ Environment created!"
 fi
 
 source "$VENV_PATH/bin/activate"

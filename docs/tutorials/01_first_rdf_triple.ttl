@@ -1,0 +1,26 @@
+# ════════════════════════════════════════════════
+# MEU PRIMEIRO ARQUIVO RDF/TURTLE! 🎉
+# ════════════════════════════════════════════════
+
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Minha primeira tripla!
+ex:Clarimar rdf:type ex:Researcher .
+ex:Clarimar ex:worksOn ex:PerinatalKG .
+ex:Clarimar ex:affiliation "Federal University of Goiás" .
+ex:Clarimar ex:email "clarimarc@gmail.com" .
+
+# O projeto
+ex:PerinatalKG rdf:type ex:ResearchProject .
+ex:PerinatalKG ex:title "PerinatalKG: Knowledge Graph for Perinatal Health" .
+ex:PerinatalKG ex:targetJournal "Journal of Biomedical Informatics" .
+ex:PerinatalKG ex:datasetSize 27000000 .
+ex:PerinatalKG ex:startDate "2026-04-29"^^xsd:date .
+
+# Colaborador
+ex:Guilherme rdf:type ex:Researcher .
+ex:Guilherme ex:affiliation "UNICAMP/FCM" .
+ex:Guilherme ex:collaboratesWith ex:Clarimar .
