@@ -1,3 +1,25 @@
+#!/bin/bash
+#
+# DIA 6 - PRIMEIRA ONTOLOGIA PERINATAL
+# Tempo estimado: 45 minutos
+#
+# Cria ontologia OWL mínima do domínio perinatal
+# e abre no Protégé para exploração visual
+
+set -e
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🧬 DIA 6: PRIMEIRA ONTOLOGIA PERINATAL"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+mkdir -p ontology/modules
+mkdir -p data_samples
+
+echo "📝 Criando ontologia perinatal mínima..."
+echo ""
+
+cat > ontology/perinatalkg_minimal.ttl << 'TTLEOF'
 # ════════════════════════════════════════════════
 # PerinatalKG - Ontologia Mínima (Week 2)
 # ════════════════════════════════════════════════
@@ -286,3 +308,129 @@ pkgr:Birth_Example_002 rdf:type pkg:PretermBirthLate ;
 # ════════════════════════════════════════════════
 # TOTAL: ~80 triplas!
 # ════════════════════════════════════════════════
+TTLEOF
+
+echo "✅ Ontologia criada!"
+echo "   📄 ontology/perinatalkg_minimal.ttl"
+echo ""
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🐍 Validando ontologia com Python..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+source activate.sh
+
+python << 'PYEOF'
+from rdflib import Graph, Namespace, RDF, RDFS, OWL
+
+g = Graph()
+g.parse("ontology/perinatalkg_minimal.ttl", format="turtle")
+
+PKG = Namespace("http://perinatalkg.org/ontology/")
+
+print(f"✅ Ontologia válida!")
+print(f"   Total de triplas: {len(g)}")
+print()
+
+# Contar classes
+classes = list(g.subjects(RDF.type, OWL.Class))
+print(f"📊 Estatísticas:")
+print(f"   Classes OWL:              {len(classes)}")
+
+# Contar propriedades
+data_props = list(g.subjects(RDF.type, OWL.DatatypeProperty))
+obj_props = list(g.subjects(RDF.type, OWL.ObjectProperty))
+print(f"   Data Properties:          {len(data_props)}")
+print(f"   Object Properties:        {len(obj_props)}")
+
+# Contar instâncias
+instances = list(g.subjects(RDF.type, None))
+instances = [i for i in instances if str(i).startswith("http://perinatalkg.org/resource/")]
+print(f"   Instâncias exemplo:       {len(instances)}")
+print()
+
+# Listar hierarquia de classes
+print("🌳 Hierarquia de Classes:")
+print()
+
+def get_subclasses(graph, parent):
+    return list(graph.subjects(RDFS.subClassOf, parent))
+
+root_classes = [PKG.Birth, PKG.Mother, PKG.ClimateExposure, PKG.Location]
+
+for root in root_classes:
+    label = g.value(root, RDFS.label)
+    print(f"   📦 {label}")
+    for sub in get_subclasses(g, root):
+        sub_label = g.value(sub, RDFS.label)
+        print(f"      └─ {sub_label}")
+        for subsub in get_subclasses(g, sub):
+            subsub_label = g.value(subsub, RDFS.label)
+            print(f"         └─ {subsub_label}")
+    print()
+
+print("🎉 Sua primeira ontologia OWL está pronta!")
+print()
+print("📖 Agora abra no Protégé para ver visualmente!")
+PYEOF
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🔬 ABRINDO NO PROTÉGÉ..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "Execute os passos abaixo:"
+echo ""
+echo "1. Abra o Protégé:"
+echo "   protege"
+echo ""
+echo "2. Vá em: File → Open"
+echo ""
+echo "3. Navegue até:"
+echo "   ~/Projects/perinatalkg/ontology/perinatalkg_minimal.ttl"
+echo ""
+echo "4. Explore as abas:"
+echo "   • Classes → Ver hierarquia"
+echo "   • Object Properties → Ver relações"
+echo "   • Data Properties → Ver atributos"
+echo "   • Individuals → Ver instâncias"
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+# Commitar ontologia
+git add ontology/perinatalkg_minimal.ttl
+git commit -m "Day 6: Add minimal perinatal OWL ontology
+
+- Birth hierarchy (Term, Preterm with subtypes)
+- Mother hierarchy (AdolescentMother)
+- ClimateExposure hierarchy (Heat, ExtremeHeat)
+- Location hierarchy (Municipality, State, Region)
+- Data properties: birthWeight, gestationalAge, etc.
+- Object properties: bornBy, bornIn, exposedTo, etc.
+- Example instances for testing
+- ~80 RDF triples
+- SNOMED-CT mappings for key classes
+"
+git push
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "✅ DIA 6 COMPLETO!"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "📊 CONQUISTAS DE HOJE:"
+echo ""
+echo "   ✅ Protégé instalado"
+echo "   ✅ Ontologia OWL criada (~80 triplas)"
+echo "   ✅ Hierarquias: Birth, Mother, Climate, Location"
+echo "   ✅ Data + Object properties definidas"
+echo "   ✅ Mapeamentos SNOMED-CT"
+echo "   ✅ Instâncias exemplo"
+echo "   ✅ Validada com RDFLib"
+echo "   ✅ Commitada no GitHub"
+echo ""
+echo "🎯 PRÓXIMO PASSO (DIA 7 - Amanhã):"
+echo "   📥 Baixar dados SIM (mortalidade neonatal)"
+echo "   🐍 ./setup/week2/dia7_sim_download.sh"
+echo ""
