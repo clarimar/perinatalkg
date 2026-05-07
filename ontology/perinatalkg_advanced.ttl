@@ -1,0 +1,240 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pkg: <http://perinatalkg.org/ontology/> .
+@prefix pkgr: <http://perinatalkg.org/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pkg:AdolescentMother a owl:Class ;
+    rdfs:label "Adolescent Mother"@en,
+        "Mãe Adolescente"@pt ;
+    rdfs:comment "Mãe com idade < 20 anos"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pkg:maternalAge ],
+        pkg:Mother .
+
+pkg:ExtremeHeatExposure a owl:Class ;
+    rdfs:label "Extreme Heat Exposure"@en,
+        "Exposição a Calor Extremo"@pt ;
+    rdfs:comment "Exposição a temperatura acima do percentil 95 local"@pt ;
+    rdfs:subClassOf pkg:HeatExposure .
+
+pkg:HighRiskBirth a owl:Class ;
+    rdfs:label "High Risk Birth"@en,
+        "Nascimento de Alto Risco"@pt ;
+    rdfs:comment "Nascimento prematuro E com baixo peso - grupo de maior vulnerabilidade"@pt ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( pkg:PretermBirth pkg:LowBirthWeight ) ] .
+
+pkg:PerinatalKGOntology a owl:Ontology ;
+    rdfs:label "PerinatalKG Ontology"@en,
+        "Ontologia PerinatalKG"@pt ;
+    rdfs:comment "Ontologia para integração de dados perinatais, climáticos e socioeconômicos no Brasil"@pt ;
+    owl:versionInfo "0.1.0-dev" .
+
+pkg:PretermBirthEarly a owl:Class ;
+    rdfs:label "Early Preterm Birth"@en,
+        "Prematuro Muito Precoce"@pt ;
+    rdfs:comment "28+0 a 31+6 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:PretermBirthExtreme a owl:Class ;
+    rdfs:label "Extreme Preterm Birth"@en,
+        "Prematuro Extremo"@pt ;
+    rdfs:comment "< 28 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:PretermBirthModerate a owl:Class ;
+    rdfs:label "Moderate Preterm Birth"@en,
+        "Prematuro Moderado"@pt ;
+    rdfs:comment "32+0 a 33+6 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:VeryLowBirthWeight a owl:Class ;
+    rdfs:label "Very Low Birth Weight"@en,
+        "Muito Baixo Peso ao Nascer"@pt ;
+    rdfs:comment "Peso ao nascer < 1500g"@pt ;
+    rdfs:subClassOf pkg:LowBirthWeight .
+
+pkg:birthWeight a owl:DatatypeProperty ;
+    rdfs:label "birth weight (grams)"@en,
+        "peso ao nascer (gramas)"@pt ;
+    rdfs:comment "Peso ao nascer em gramas (SINASC: PESO)"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer .
+
+pkg:bornBy a owl:ObjectProperty ;
+    rdfs:label "born by"@en,
+        "nascido de"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Mother .
+
+pkg:exposedTo a owl:ObjectProperty ;
+    rdfs:label "exposed to"@en,
+        "exposto a"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:ClimateExposure .
+
+pkg:extremeHeatDays a owl:DatatypeProperty ;
+    rdfs:label "extreme heat days"@en,
+        "dias de calor extremo"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:integer .
+
+pkg:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en,
+        "localizado em"@pt ;
+    rdfs:domain pkg:Municipality ;
+    rdfs:range pkg:State .
+
+pkg:meanTemperature a owl:DatatypeProperty ;
+    rdfs:label "mean temperature (°C)"@en,
+        "temperatura média (°C)"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:decimal .
+
+pkg:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en,
+        "parte de"@pt ;
+    rdfs:domain pkg:State ;
+    rdfs:range pkg:Region .
+
+pkg:prenatalVisits a owl:DatatypeProperty ;
+    rdfs:label "prenatal visits"@en,
+        "consultas pré-natal"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkgr:Birth_Example_001 a pkg:Birth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornIn pkgr:MunicipalityGoiania ;
+    pkg:gestationalAge 39 .
+
+pkgr:Birth_Example_002 a pkg:PretermBirthLate ;
+    pkg:birthWeight 2100 ;
+    pkg:bornIn pkgr:MunicipalityGoiania ;
+    pkg:gestationalAge 35 .
+
+pkgr:RegionNorth a pkg:Region ;
+    rdfs:label "North Region"@en,
+        "Região Norte"@pt .
+
+pkgr:RegionNortheast a pkg:Region ;
+    rdfs:label "Northeast Region"@en,
+        "Região Nordeste"@pt .
+
+pkgr:RegionSouth a pkg:Region ;
+    rdfs:label "South Region"@en,
+        "Região Sul"@pt .
+
+pkgr:RegionSoutheast a pkg:Region ;
+    rdfs:label "Southeast Region"@en,
+        "Região Sudeste"@pt .
+
+pkg:HeatExposure a owl:Class ;
+    rdfs:label "Heat Exposure"@en,
+        "Exposição ao Calor"@pt ;
+    rdfs:comment "Exposição a temperatura elevada durante gestação"@pt ;
+    rdfs:subClassOf pkg:ClimateExposure .
+
+pkg:PretermBirthLate a owl:Class ;
+    rdfs:label "Late Preterm Birth"@en,
+        "Prematuro Tardio"@pt ;
+    rdfs:comment "34+0 a 36+6 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:TermBirth a owl:Class ;
+    rdfs:label "Term Birth"@en,
+        "Nascimento a Termo"@pt ;
+    rdfs:comment "Nascimento com idade gestacional ≥ 37 semanas"@pt ;
+    rdfs:subClassOf pkg:Birth .
+
+pkg:bornIn a owl:ObjectProperty ;
+    rdfs:label "born in"@en,
+        "nascido em"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Municipality .
+
+pkg:gestationalAge a owl:DatatypeProperty ;
+    rdfs:label "gestational age (weeks)"@en,
+        "idade gestacional (semanas)"@pt ;
+    rdfs:comment "Idade gestacional em semanas completas (SINASC: SEMAGESTAC)"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer .
+
+pkg:maternalAge a owl:DatatypeProperty ;
+    rdfs:label "maternal age (years)"@en,
+        "idade materna (anos)"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkgr:RegionCenterWest a pkg:Region ;
+    rdfs:label "Center-West Region"@en,
+        "Região Centro-Oeste"@pt .
+
+pkgr:StateGO a pkg:State ;
+    rdfs:label "Goiás"@pt ;
+    pkg:partOf pkgr:RegionCenterWest .
+
+pkg:LowBirthWeight a owl:Class ;
+    rdfs:label "Low Birth Weight"@en,
+        "Baixo Peso ao Nascer"@pt ;
+    rdfs:comment "Peso ao nascer < 2500g (OMS)"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:exactMatch <http://snomed.info/id/276610007> .
+
+pkgr:MunicipalityGoiania a pkg:Municipality ;
+    rdfs:label "Goiânia"@pt ;
+    pkg:locatedIn pkgr:StateGO .
+
+pkg:Location a owl:Class ;
+    rdfs:label "Location"@en,
+        "Localização"@pt .
+
+pkg:Municipality a owl:Class ;
+    rdfs:label "Municipality"@en,
+        "Município"@pt ;
+    rdfs:comment "Município brasileiro (código IBGE 6 dígitos)"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:State a owl:Class ;
+    rdfs:label "State"@en,
+        "Estado"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:ClimateExposure a owl:Class ;
+    rdfs:label "Climate Exposure"@en,
+        "Exposição Climática"@pt ;
+    rdfs:comment "Exposição a condição climática durante a gestação"@pt .
+
+pkg:Mother a owl:Class ;
+    rdfs:label "Mother"@en,
+        "Mãe"@pt ;
+    rdfs:comment "Mãe do nascido vivo registrada no SINASC"@pt .
+
+pkg:PretermBirth a owl:Class ;
+    rdfs:label "Preterm Birth"@en,
+        "Nascimento Prematuro"@pt ;
+    rdfs:comment "Nascimento com idade gestacional < 37 semanas (OMS)"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    owl:disjointWith pkg:TermBirth ;
+    skos:exactMatch <http://snomed.info/id/395122000> .
+
+pkg:Region a owl:Class ;
+    rdfs:label "Region"@en,
+        "Região"@pt ;
+    rdfs:comment "Uma das 5 regiões do Brasil"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:Birth a owl:Class ;
+    rdfs:label "Birth"@en,
+        "Nascimento"@pt ;
+    rdfs:comment "Um evento de nascimento vivo registrado no SINASC"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty pkg:gestationalAge ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty pkg:bornIn ] .
+
