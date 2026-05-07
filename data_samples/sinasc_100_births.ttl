@@ -1,0 +1,1901 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pkg: <http://perinatalkg.org/ontology/> .
+@prefix pkgr: <http://perinatalkg.org/resource/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pkg:PerinatalKGOntology a owl:Ontology ;
+    rdfs:label "PerinatalKG Ontology"@en,
+        "Ontologia PerinatalKG"@pt ;
+    rdfs:comment "Ontologia para integração de dados perinatais, climáticos e socioeconômicos no Brasil"@pt ;
+    owl:versionInfo "0.1.0-dev" .
+
+pkg:birthWeight a owl:DatatypeProperty ;
+    rdfs:label "birth weight (grams)"@en,
+        "peso ao nascer (gramas)"@pt ;
+    rdfs:comment "Peso ao nascer em gramas (SINASC: PESO)"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer .
+
+pkg:bornBy a owl:ObjectProperty ;
+    rdfs:label "born by"@en,
+        "nascido de"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Mother .
+
+pkg:bornIn a owl:ObjectProperty ;
+    rdfs:label "born in"@en,
+        "nascido em"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Municipality .
+
+pkg:exposedTo a owl:ObjectProperty ;
+    rdfs:label "exposed to"@en,
+        "exposto a"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:ClimateExposure .
+
+pkg:extremeHeatDays a owl:DatatypeProperty ;
+    rdfs:label "extreme heat days"@en,
+        "dias de calor extremo"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:integer .
+
+pkg:gestationalAge a owl:DatatypeProperty ;
+    rdfs:label "gestational age (weeks)"@en,
+        "idade gestacional (semanas)"@pt ;
+    rdfs:comment "Idade gestacional em semanas completas (SINASC: SEMAGESTAC)"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer .
+
+pkg:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en,
+        "localizado em"@pt ;
+    rdfs:domain pkg:Municipality ;
+    rdfs:range pkg:State .
+
+pkg:maternalAge a owl:DatatypeProperty ;
+    rdfs:label "maternal age (years)"@en,
+        "idade materna (anos)"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkg:meanTemperature a owl:DatatypeProperty ;
+    rdfs:label "mean temperature (°C)"@en,
+        "temperatura média (°C)"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:decimal .
+
+pkg:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en,
+        "parte de"@pt ;
+    rdfs:domain pkg:State ;
+    rdfs:range pkg:Region .
+
+pkg:prenatalVisits a owl:DatatypeProperty ;
+    rdfs:label "prenatal visits"@en,
+        "consultas pré-natal"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkgr:Birth_Example_001 a pkg:Birth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornIn pkgr:MunicipalityGoiania ;
+    pkg:gestationalAge 39 .
+
+pkgr:Birth_Example_002 a pkg:PretermBirthLate ;
+    pkg:birthWeight 2100 ;
+    pkg:bornIn pkgr:MunicipalityGoiania ;
+    pkg:gestationalAge 35 .
+
+pkgr:RegionNorth a pkg:Region ;
+    rdfs:label "North Region"@en,
+        "Região Norte"@pt .
+
+pkgr:RegionNortheast a pkg:Region ;
+    rdfs:label "Northeast Region"@en,
+        "Região Nordeste"@pt .
+
+pkgr:RegionSouth a pkg:Region ;
+    rdfs:label "South Region"@en,
+        "Região Sul"@pt .
+
+pkgr:RegionSoutheast a pkg:Region ;
+    rdfs:label "Southeast Region"@en,
+        "Região Sudeste"@pt .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557743> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3568 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557743_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557743_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557744> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3055 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557744_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557744_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557745> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3194 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557745_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557745_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557746> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2710 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557746_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557746_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557747> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3280 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557747_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557747_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557748> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3685 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557748_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557748_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557749> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557749_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557749_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557750> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3210 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557750_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557750_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557751> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3310 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557751_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557751_T3> ;
+    pkg:gestationalAge 41 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557752> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2840 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557752_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557752_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557753> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2550 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557753_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557753_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557754> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3420 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557754_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557754_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557755> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3050 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557755_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557755_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557756> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3450 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557756_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557756_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557757> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2950 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557757_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557757_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557758> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3400 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557758_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557758_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557759> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3150 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557759_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557759_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557760> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3400 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557760_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557760_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557761> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3600 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557761_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557761_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557762> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3800 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557762_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557762_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557763> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3470 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557763_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557763_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557764> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2770 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557764_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557764_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557765> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2850 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557765_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557765_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557766> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2650 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557766_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557766_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557767> a pkg:Birth,
+        pkg:PretermBirth,
+        pkg:PretermBirthModerate ;
+    pkg:birthWeight 3750 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557767_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557767_T3> ;
+    pkg:gestationalAge 33 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557768> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2910 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557768_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557768_T3> ;
+    pkg:gestationalAge 41 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557769> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3410 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557769_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557769_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557770> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557770_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557770_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557771> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3500 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557771_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557771_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557772> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557772_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557772_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557773> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3553 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557773_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557773_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557774> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3260 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557774_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557774_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557775> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3834 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557775_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557775_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557776> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3425 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557776_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557776_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557777> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3064 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557777_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557777_T3> ;
+    pkg:gestationalAge 41 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557778> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3482 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557778_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557778_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557779> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3610 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557779_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557779_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557780> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3100 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557780_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557780_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557781> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3567 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557781_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557781_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557782> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthModerate,
+        pkg:VeryLowBirthWeight ;
+    pkg:birthWeight 1010 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557782_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557782_T3> ;
+    pkg:gestationalAge 32 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557783> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3296 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557783_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557783_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557784> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3632 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557784_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557784_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557785> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 4300 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557785_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557785_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557786> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthExtreme ;
+    pkg:birthWeight 1720 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557786_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557786_T3> ;
+    pkg:gestationalAge 27 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557787> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3400 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557787_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557787_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557788> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3640 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557788_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557788_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557789> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3525 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557789_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557789_T3> ;
+    pkg:gestationalAge 41 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557790> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3186 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557790_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557790_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557791> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3395 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557791_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557791_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557792> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3542 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557792_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557792_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557793> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:TermBirth ;
+    pkg:birthWeight 2495 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557793_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557793_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557794> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3295 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557794_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557794_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557795> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3400 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557795_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557795_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557796> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3735 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557796_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557796_T3> ;
+    pkg:gestationalAge 41 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557797> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3245 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557797_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557797_T3> ;
+    pkg:gestationalAge 41 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557798> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2940 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557798_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557798_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557799> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3500 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557799_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557799_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557800> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3710 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557800_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557800_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557801> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3160 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557801_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557801_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557802> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthLate ;
+    pkg:birthWeight 2450 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557802_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557802_T3> ;
+    pkg:gestationalAge 35 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557803> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2915 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557803_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557803_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557804> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557804_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557804_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557805> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3884 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557805_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557805_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557806> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3335 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557806_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557806_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557807> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3370 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557807_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557807_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557809> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3200 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557809_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557809_T3> ;
+    pkg:gestationalAge 40 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557810> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3620 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557810_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557810_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557811> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2750 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557811_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557811_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557812> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3185 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557812_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557812_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557813> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3875 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557813_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557813_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557814> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2705 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557814_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557814_T3> ;
+    pkg:gestationalAge 42 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557815> a pkg:Birth,
+        pkg:PretermBirth,
+        pkg:PretermBirthLate ;
+    pkg:birthWeight 3700 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557815_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557815_T3> ;
+    pkg:gestationalAge 36 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557816> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthExtreme,
+        pkg:VeryLowBirthWeight ;
+    pkg:birthWeight 710 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557816_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557816_T3> ;
+    pkg:gestationalAge 24 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557817> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthExtreme,
+        pkg:VeryLowBirthWeight ;
+    pkg:birthWeight 755 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557817_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557817_T3> ;
+    pkg:gestationalAge 24 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557818> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3435 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557818_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557818_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557819> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3785 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557819_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557819_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557820> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3165 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557820_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557820_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557821> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3265 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557821_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557821_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557822> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3445 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557822_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557822_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557823> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3195 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557823_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557823_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557824> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthModerate ;
+    pkg:birthWeight 2085 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557824_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557824_T3> ;
+    pkg:gestationalAge 32 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557825> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3225 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557825_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557825_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557826> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthEarly,
+        pkg:VeryLowBirthWeight ;
+    pkg:birthWeight 545 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557826_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557826_T3> ;
+    pkg:gestationalAge 31 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557827> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 4390 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557827_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557827_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557828> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3635 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557828_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557828_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557829> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2515 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557829_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557829_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557830> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3090 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557830_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557830_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557831> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthModerate,
+        pkg:VeryLowBirthWeight ;
+    pkg:birthWeight 1205 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557831_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557831_T3> ;
+    pkg:gestationalAge 33 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557832> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 2655 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557832_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557832_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557833> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3335 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557833_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557833_T3> ;
+    pkg:gestationalAge 39 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557834> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3125 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557834_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557834_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557835> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:PretermBirth,
+        pkg:PretermBirthLate ;
+    pkg:birthWeight 2400 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557835_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557835_T3> ;
+    pkg:gestationalAge 35 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557836> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3330 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557836_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557836_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557837> a pkg:Birth,
+        pkg:PretermBirth,
+        pkg:PretermBirthLate ;
+    pkg:birthWeight 3280 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557837_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557837_T3> ;
+    pkg:gestationalAge 34 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557838> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:TermBirth ;
+    pkg:birthWeight 2320 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557838_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557838_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557839> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3520 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557839_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557839_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557840> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3255 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557840_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557840_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557841> a pkg:Birth,
+        pkg:LowBirthWeight,
+        pkg:TermBirth,
+        pkg:VeryLowBirthWeight ;
+    pkg:birthWeight 355 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557841_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557841_T3> ;
+    pkg:gestationalAge 38 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557842> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 3055 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557842_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557842_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+<http://perinatalkg.org/resource/birth/BIRTH_2020_00557843> a pkg:Birth,
+        pkg:TermBirth ;
+    pkg:birthWeight 4440 ;
+    pkg:bornBy <http://perinatalkg.org/resource/mother/BIRTH_2020_00557843_m> ;
+    pkg:exposedTo <http://perinatalkg.org/resource/exposure/BIRTH_2020_00557843_T3> ;
+    pkg:gestationalAge 37 ;
+    prov:wasDerivedFrom <http://perinatalkg.org/resource/dataset/SINASC_2020> .
+
+pkg:HeatExposure a owl:Class ;
+    rdfs:label "Heat Exposure"@en,
+        "Exposição ao Calor"@pt ;
+    rdfs:comment "Exposição a temperatura elevada durante gestação"@pt ;
+    rdfs:subClassOf pkg:ClimateExposure .
+
+pkg:PretermBirthEarly a owl:Class ;
+    rdfs:label "Early Preterm Birth"@en,
+        "Prematuro Muito Precoce"@pt ;
+    rdfs:comment "28+0 a 31+6 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkgr:RegionCenterWest a pkg:Region ;
+    rdfs:label "Center-West Region"@en,
+        "Região Centro-Oeste"@pt .
+
+pkgr:StateGO a pkg:State ;
+    rdfs:label "Goiás"@pt ;
+    pkg:partOf pkgr:RegionCenterWest .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557743_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.581884142819447 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557744_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557745_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.87472792376754 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557746_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557747_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.85776837383945 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557748_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.60477363740598 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557749_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.55735063075489 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557750_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.507967650847622 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557751_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.997658669051305 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557752_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.60477363740598 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557753_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557754_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557755_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557756_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557757_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557758_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557759_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557760_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557761_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.87994230947187 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557762_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.855689660858392 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557763_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.855689660858392 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557764_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.855689660858392 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557765_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.855689660858392 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557766_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.855689660858392 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557767_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557768_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557769_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557770_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557771_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557772_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 26.20427254283256 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557773_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557774_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557775_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.312751476332398 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557776_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.329721517106716 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557777_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.14660610903357 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557778_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.72791739086951 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557779_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 25.682456693341656 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557780_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.611301200408423 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557781_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 5 ;
+    pkg:meanTemperature 26.94142808373168 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557782_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.2695727866183 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557783_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.4354135787129 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557784_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.016700104060565 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557785_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.803399885854414 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557786_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 1 ;
+    pkg:meanTemperature 25.669436093741627 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557787_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.60477363740598 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557788_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.402195553113057 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557789_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.19699712271685 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557790_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.347568752768307 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557791_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.803399885854414 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557792_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.803399885854414 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557793_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.312751476332398 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557794_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.369395780351194 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557795_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 22.45535073160698 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557796_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.32552369736635 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557797_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.54227168990985 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557798_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.894355942442427 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557799_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.1133557260589 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557800_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.529294629250803 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557801_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 26.13738819860643 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557802_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.1133557260589 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557803_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.1133557260589 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557804_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.157937996703662 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557805_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.0544056956044 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557806_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.86344444674241 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557807_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 5 ;
+    pkg:meanTemperature 27.522805256360897 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557809_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 25.573062175726687 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557810_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.4331024846723 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557811_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.190804094661814 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557812_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.19642939640055 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557813_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 5 ;
+    pkg:meanTemperature 27.522805256360897 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557814_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 8 ;
+    pkg:meanTemperature 25.283710667845668 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557815_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.42411870288106 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557816_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 21.21685426876109 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557817_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 21.21685426876109 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557818_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557819_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557820_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557821_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557822_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557823_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557824_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 3 ;
+    pkg:meanTemperature 26.77474551047048 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557825_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.351471428346052 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557826_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.646203817594568 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557827_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.721917413719325 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557828_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.712979034534154 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557829_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.76125700779949 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557830_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.76125700779949 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557831_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.76125700779949 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557832_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.377139454473745 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557833_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.575913101703595 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557834_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.377139454473745 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557835_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.031907102796765 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557836_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 23.058531282623182 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557837_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.351471428346052 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557838_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.383758449094756 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557839_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.74447503277905 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557840_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 21.79688333354116 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557841_T3> a pkg:ClimateExposure,
+        pkg:ExtremeHeatExposure ;
+    pkg:extremeHeatDays 2 ;
+    pkg:meanTemperature 26.17496830045978 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557842_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 24.205051406566387 .
+
+<http://perinatalkg.org/resource/exposure/BIRTH_2020_00557843_T3> a pkg:ClimateExposure ;
+    pkg:extremeHeatDays 0 ;
+    pkg:meanTemperature 25.668660563807332 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557743_m> a pkg:Mother ;
+    pkg:maternalAge 21 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557744_m> a pkg:Mother ;
+    pkg:maternalAge 23 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557745_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557746_m> a pkg:Mother ;
+    pkg:maternalAge 32 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557747_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 19 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557748_m> a pkg:Mother ;
+    pkg:maternalAge 21 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557749_m> a pkg:Mother ;
+    pkg:maternalAge 26 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557750_m> a pkg:Mother ;
+    pkg:maternalAge 23 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557751_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 1 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557752_m> a pkg:Mother ;
+    pkg:maternalAge 33 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557753_m> a pkg:Mother ;
+    pkg:maternalAge 40 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557754_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 17 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557755_m> a pkg:Mother ;
+    pkg:maternalAge 35 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557756_m> a pkg:Mother ;
+    pkg:maternalAge 26 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557757_m> a pkg:Mother ;
+    pkg:maternalAge 20 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557758_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 18 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557759_m> a pkg:Mother ;
+    pkg:maternalAge 24 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557760_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 18 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557761_m> a pkg:Mother ;
+    pkg:maternalAge 22 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557762_m> a pkg:Mother ;
+    pkg:maternalAge 36 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557763_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 19 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557764_m> a pkg:Mother ;
+    pkg:maternalAge 24 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557765_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557766_m> a pkg:Mother ;
+    pkg:maternalAge 33 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557767_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557768_m> a pkg:Mother ;
+    pkg:maternalAge 26 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557769_m> a pkg:Mother ;
+    pkg:maternalAge 22 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557770_m> a pkg:Mother ;
+    pkg:maternalAge 37 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557771_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 17 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557772_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557773_m> a pkg:Mother ;
+    pkg:maternalAge 26 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557774_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 17 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557775_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 19 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557776_m> a pkg:Mother ;
+    pkg:maternalAge 33 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557777_m> a pkg:Mother ;
+    pkg:maternalAge 26 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557778_m> a pkg:Mother ;
+    pkg:maternalAge 21 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557779_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557780_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557781_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557782_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557783_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557784_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557785_m> a pkg:Mother ;
+    pkg:maternalAge 24 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557786_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557787_m> a pkg:Mother ;
+    pkg:maternalAge 22 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557788_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 19 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557789_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 19 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557790_m> a pkg:Mother ;
+    pkg:maternalAge 24 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557791_m> a pkg:Mother ;
+    pkg:maternalAge 23 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557792_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 18 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557793_m> a pkg:Mother ;
+    pkg:maternalAge 24 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557794_m> a pkg:Mother ;
+    pkg:maternalAge 21 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557795_m> a pkg:Mother ;
+    pkg:maternalAge 23 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557796_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557797_m> a pkg:Mother ;
+    pkg:maternalAge 29 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557798_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557799_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557800_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557801_m> a pkg:Mother ;
+    pkg:maternalAge 39 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557802_m> a pkg:Mother ;
+    pkg:maternalAge 24 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557803_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557804_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557805_m> a pkg:Mother ;
+    pkg:maternalAge 40 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557806_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557807_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557809_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557810_m> a pkg:Mother ;
+    pkg:maternalAge 21 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557811_m> a pkg:Mother ;
+    pkg:maternalAge 35 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557812_m> a pkg:Mother ;
+    pkg:maternalAge 36 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557813_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557814_m> a pkg:Mother ;
+    pkg:maternalAge 36 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557815_m> a pkg:Mother ;
+    pkg:maternalAge 36 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557816_m> a pkg:Mother ;
+    pkg:maternalAge 20 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557817_m> a pkg:Mother ;
+    pkg:maternalAge 20 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557818_m> a pkg:Mother ;
+    pkg:maternalAge 29 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557819_m> a pkg:Mother ;
+    pkg:maternalAge 32 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557820_m> a pkg:Mother ;
+    pkg:maternalAge 38 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557821_m> a pkg:Mother ;
+    pkg:maternalAge 34 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557822_m> a pkg:Mother ;
+    pkg:maternalAge 37 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557823_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557824_m> a pkg:Mother ;
+    pkg:maternalAge 38 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557825_m> a pkg:Mother ;
+    pkg:maternalAge 25 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557826_m> a pkg:Mother ;
+    pkg:maternalAge 27 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557827_m> a pkg:Mother ;
+    pkg:maternalAge 33 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557828_m> a pkg:Mother ;
+    pkg:maternalAge 31 ;
+    pkg:prenatalVisits 2 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557829_m> a pkg:Mother ;
+    pkg:maternalAge 37 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557830_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557831_m> a pkg:Mother ;
+    pkg:maternalAge 30 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557832_m> a pkg:Mother ;
+    pkg:maternalAge 41 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557833_m> a pkg:Mother ;
+    pkg:maternalAge 36 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557834_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557835_m> a pkg:Mother ;
+    pkg:maternalAge 28 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557836_m> a pkg:Mother ;
+    pkg:maternalAge 21 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557837_m> a pkg:AdolescentMother,
+        pkg:Mother ;
+    pkg:maternalAge 18 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557838_m> a pkg:Mother ;
+    pkg:maternalAge 37 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557839_m> a pkg:Mother ;
+    pkg:maternalAge 29 ;
+    pkg:prenatalVisits 3 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557840_m> a pkg:Mother ;
+    pkg:maternalAge 22 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557841_m> a pkg:Mother ;
+    pkg:maternalAge 43 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557842_m> a pkg:Mother ;
+    pkg:maternalAge 34 ;
+    pkg:prenatalVisits 4 .
+
+<http://perinatalkg.org/resource/mother/BIRTH_2020_00557843_m> a pkg:Mother ;
+    pkg:maternalAge 38 ;
+    pkg:prenatalVisits 4 .
+
+pkgr:MunicipalityGoiania a pkg:Municipality ;
+    rdfs:label "Goiânia"@pt ;
+    pkg:locatedIn pkgr:StateGO .
+
+pkg:Location a owl:Class ;
+    rdfs:label "Location"@en,
+        "Localização"@pt .
+
+pkg:Municipality a owl:Class ;
+    rdfs:label "Municipality"@en,
+        "Município"@pt ;
+    rdfs:comment "Município brasileiro (código IBGE 6 dígitos)"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:PretermBirthExtreme a owl:Class ;
+    rdfs:label "Extreme Preterm Birth"@en,
+        "Prematuro Extremo"@pt ;
+    rdfs:comment "< 28 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:State a owl:Class ;
+    rdfs:label "State"@en,
+        "Estado"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:PretermBirthModerate a owl:Class ;
+    rdfs:label "Moderate Preterm Birth"@en,
+        "Prematuro Moderado"@pt ;
+    rdfs:comment "32+0 a 33+6 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:PretermBirthLate a owl:Class ;
+    rdfs:label "Late Preterm Birth"@en,
+        "Prematuro Tardio"@pt ;
+    rdfs:comment "34+0 a 36+6 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:Region a owl:Class ;
+    rdfs:label "Region"@en,
+        "Região"@pt ;
+    rdfs:comment "Uma das 5 regiões do Brasil"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:VeryLowBirthWeight a owl:Class ;
+    rdfs:label "Very Low Birth Weight"@en,
+        "Muito Baixo Peso ao Nascer"@pt ;
+    rdfs:comment "Peso ao nascer < 1500g"@pt ;
+    rdfs:subClassOf pkg:LowBirthWeight .
+
+pkg:AdolescentMother a owl:Class ;
+    rdfs:label "Adolescent Mother"@en,
+        "Mãe Adolescente"@pt ;
+    rdfs:comment "Mãe com idade < 20 anos"@pt ;
+    rdfs:subClassOf pkg:Mother .
+
+pkg:LowBirthWeight a owl:Class ;
+    rdfs:label "Low Birth Weight"@en,
+        "Baixo Peso ao Nascer"@pt ;
+    rdfs:comment "Peso ao nascer < 2500g (OMS)"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:exactMatch <http://snomed.info/id/276610007> .
+
+pkg:PretermBirth a owl:Class ;
+    rdfs:label "Preterm Birth"@en,
+        "Nascimento Prematuro"@pt ;
+    rdfs:comment "Nascimento com idade gestacional < 37 semanas (OMS)"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:exactMatch <http://snomed.info/id/395122000> .
+
+pkg:ExtremeHeatExposure a owl:Class ;
+    rdfs:label "Extreme Heat Exposure"@en,
+        "Exposição a Calor Extremo"@pt ;
+    rdfs:comment "Exposição a temperatura acima do percentil 95 local"@pt ;
+    rdfs:subClassOf pkg:HeatExposure .
+
+pkg:TermBirth a owl:Class ;
+    rdfs:label "Term Birth"@en,
+        "Nascimento a Termo"@pt ;
+    rdfs:comment "Nascimento com idade gestacional ≥ 37 semanas"@pt ;
+    rdfs:subClassOf pkg:Birth .
+
+pkg:ClimateExposure a owl:Class ;
+    rdfs:label "Climate Exposure"@en,
+        "Exposição Climática"@pt ;
+    rdfs:comment "Exposição a condição climática durante a gestação"@pt .
+
+pkg:Mother a owl:Class ;
+    rdfs:label "Mother"@en,
+        "Mãe"@pt ;
+    rdfs:comment "Mãe do nascido vivo registrada no SINASC"@pt .
+
+pkg:Birth a owl:Class ;
+    rdfs:label "Birth"@en,
+        "Nascimento"@pt ;
+    rdfs:comment "Um evento de nascimento vivo registrado no SINASC"@pt .
+
