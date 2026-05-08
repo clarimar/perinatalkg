@@ -79,3 +79,6 @@ fuseki-data/
 tdb2/
 *.odt
 data/raw/sim/dbc_faltantes/
+
+# Fuseki TDB2 databases (grandes demais)
+fuseki-data/databases/
