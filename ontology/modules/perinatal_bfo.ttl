@@ -1,0 +1,74 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/BFO_> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pkg: <http://perinatalkg.org/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+pkg:Birth a owl:Class ;
+    rdfs:comment "BFO alignment: Birth is a process (occurrent) - has temporal parts"@en ;
+    rdfs:subClassOf bfo:0000003 .
+
+pkg:ClimateExposure a owl:Class ;
+    rdfs:comment "BFO alignment: Climate exposure is a process occurring during gestation"@en ;
+    rdfs:subClassOf bfo:0000003 .
+
+pkg:Mother a owl:Class ;
+    rdfs:comment "BFO alignment: Mother is a material entity (organism)"@en ;
+    rdfs:subClassOf bfo:0000040 .
+
+pkg:Municipality a owl:Class ;
+    rdfs:comment "BFO alignment: Municipality is a geographic site"@en ;
+    rdfs:subClassOf bfo:0000029 .
+
+pkg:PerinatalKGOntology a owl:Ontology ;
+    rdfs:label "PerinatalKG Ontology - BFO Aligned"@en ;
+    owl:imports <http://purl.obolibrary.org/obo/bfo/2019-08-26/bfo.owl> ;
+    owl:versionInfo "0.2.0-dev" .
+
+pkg:PretermBirth a owl:Class ;
+    rdfs:comment "BFO alignment: PretermBirth is a subtype of Birth process"@en ;
+    rdfs:subClassOf bfo:0000003 .
+
+pkg:Region a owl:Class ;
+    rdfs:comment "BFO alignment: Region is a geographic site"@en ;
+    rdfs:subClassOf bfo:0000029 .
+
+pkg:birthWeight a owl:DatatypeProperty ;
+    rdfs:comment "BFO alignment: Birth weight is a quality of the newborn"@en ;
+    rdfs:subPropertyOf obo:RO_0000086 .
+
+pkg:gestationalAge a owl:DatatypeProperty ;
+    rdfs:comment "BFO alignment: Gestational age is a temporal quality"@en ;
+    rdfs:subPropertyOf obo:RO_0000086 .
+
+pkg:maternalAge a owl:DatatypeProperty ;
+    rdfs:comment "BFO alignment: Maternal age is a quality of the mother"@en ;
+    rdfs:subPropertyOf obo:RO_0000086 .
+
+bfo:0000001 a owl:Class ;
+    rdfs:label "Entity"@en .
+
+bfo:0000002 a owl:Class ;
+    rdfs:label "Continuant"@en .
+
+bfo:0000004 a owl:Class ;
+    rdfs:label "Independent Continuant"@en .
+
+bfo:0000019 a owl:Class ;
+    rdfs:label "Quality"@en .
+
+bfo:0000020 a owl:Class ;
+    rdfs:label "Specifically Dependent Continuant"@en .
+
+bfo:0000030 a owl:Class ;
+    rdfs:label "Object"@en .
+
+bfo:0000040 a owl:Class ;
+    rdfs:label "Material Entity"@en .
+
+bfo:0000029 a owl:Class ;
+    rdfs:label "Site"@en .
+
+bfo:0000003 a owl:Class ;
+    rdfs:label "Occurrent"@en .
+
