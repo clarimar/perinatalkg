@@ -1,0 +1,163 @@
+# ════════════════════════════════════════════════
+# PerinatalKG - SHACL Shapes
+# ════════════════════════════════════════════════
+# Autor: Clarimar José Coelho
+# Data: 2026-05-20
+#
+# Valida que os dados RDF obedecem às regras
+# clínicas e epidemiológicas do domínio perinatal
+# ════════════════════════════════════════════════
+
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix pkg:  <http://perinatalkg.org/ontology/> .
+@prefix pkgr: <http://perinatalkg.org/resource/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+# ════════════════════════════════════════════════
+# SHAPE 1: Birth - Validação de nascimento
+# ════════════════════════════════════════════════
+
+pkg:BirthShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass pkg:Birth ;
+    rdfs:label "Birth Validation Shape" ;
+    rdfs:comment "Valida regras clínicas para nascimentos SINASC" ;
+
+    # Peso ao nascer: obrigatório, entre 200g e 7000g
+    sh:property [
+        sh:path pkg:birthWeight ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 200 ;
+        sh:maxInclusive 7000 ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Peso ao nascer deve ser inteiro entre 200g e 7000g" ;
+        sh:severity sh:Violation ;
+    ] ;
+
+    # Idade gestacional: obrigatória, entre 20 e 45 semanas
+    sh:property [
+        sh:path pkg:gestationalAge ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 20 ;
+        sh:maxInclusive 45 ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Idade gestacional deve ser inteiro entre 20 e 45 semanas" ;
+        sh:severity sh:Violation ;
+    ] ;
+
+    # Município: obrigatório
+    sh:property [
+        sh:path pkg:bornIn ;
+        sh:class pkg:Municipality ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Nascimento deve ter exatamente 1 município" ;
+        sh:severity sh:Warning ;
+    ] ;
+
+    # Mãe: obrigatória
+    sh:property [
+        sh:path pkg:bornBy ;
+        sh:class pkg:Mother ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Nascimento deve ter exatamente 1 mãe" ;
+        sh:severity sh:Violation ;
+    ] .
+
+# ════════════════════════════════════════════════
+# SHAPE 2: Mother - Validação de mãe
+# ════════════════════════════════════════════════
+
+pkg:MotherShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass pkg:Mother ;
+    rdfs:label "Mother Validation Shape" ;
+
+    # Idade materna: entre 10 e 60 anos
+    sh:property [
+        sh:path pkg:maternalAge ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 10 ;
+        sh:maxInclusive 60 ;
+        sh:message "Idade materna deve ser entre 10 e 60 anos" ;
+        sh:severity sh:Violation ;
+    ] ;
+
+    # Pré-natal: entre 0 e 42 consultas
+    sh:property [
+        sh:path pkg:prenatalVisits ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 42 ;
+        sh:message "Consultas pré-natal deve ser entre 0 e 42" ;
+        sh:severity sh:Warning ;
+    ] .
+
+# ════════════════════════════════════════════════
+# SHAPE 3: ClimateExposure - Validação climática
+# ════════════════════════════════════════════════
+
+pkg:ClimateExposureShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass pkg:ClimateExposure ;
+    rdfs:label "Climate Exposure Validation Shape" ;
+
+    # Temperatura: entre -20°C e 50°C (Brasil)
+    sh:property [
+        sh:path pkg:meanTemperature ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive -20 ;
+        sh:maxInclusive 50 ;
+        sh:message "Temperatura média deve ser entre -20°C e 50°C" ;
+        sh:severity sh:Violation ;
+    ] ;
+
+    # Dias de calor extremo: entre 0 e 90 dias
+    sh:property [
+        sh:path pkg:extremeHeatDays ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 90 ;
+        sh:message "Dias de calor extremo deve ser entre 0 e 90" ;
+        sh:severity sh:Warning ;
+    ] .
+
+# ════════════════════════════════════════════════
+# SHAPE 4: PretermBirth - Regra clínica
+# ════════════════════════════════════════════════
+
+pkg:PretermBirthShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass pkg:PretermBirth ;
+    rdfs:label "Preterm Birth Clinical Rule" ;
+
+    # Prematuro: IG DEVE ser < 37 semanas
+    sh:property [
+        sh:path pkg:gestationalAge ;
+        sh:maxExclusive 37 ;
+        sh:message "PretermBirth DEVE ter idade gestacional < 37 semanas" ;
+        sh:severity sh:Violation ;
+    ] .
+
+# ════════════════════════════════════════════════
+# SHAPE 5: LowBirthWeight - Regra clínica
+# ════════════════════════════════════════════════
+
+pkg:LowBirthWeightShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass pkg:LowBirthWeight ;
+    rdfs:label "Low Birth Weight Clinical Rule" ;
+
+    # Baixo peso: DEVE ser < 2500g
+    sh:property [
+        sh:path pkg:birthWeight ;
+        sh:maxExclusive 2500 ;
+        sh:message "LowBirthWeight DEVE ter peso < 2500g" ;
+        sh:severity sh:Violation ;
+    ] .
