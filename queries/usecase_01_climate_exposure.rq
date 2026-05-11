@@ -1,0 +1,39 @@
+
+PREFIX pkg:  <http://perinatalkg.org/ontology/>
+PREFIX pkgr: <http://perinatalkg.org/resource/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Use Case 1: Climate exposure profile by birth outcome
+# PerinatalKG - Coelho et al. (2027)
+
+SELECT
+    ?birth_type
+    (COUNT(?birth) AS ?n)
+    (AVG(?weight) AS ?mean_weight_g)
+    (AVG(?gest_age) AS ?mean_gest_age_weeks)
+    (COUNT(?heat_exp) AS ?n_extreme_heat)
+    (AVG(?heat_days) AS ?mean_heat_days)
+WHERE {
+    ?birth rdf:type ?birth_class .
+    ?birth_class rdfs:subClassOf* pkg:Birth .
+    ?birth pkg:birthWeight ?weight .
+    ?birth pkg:gestationalAge ?gest_age .
+
+    BIND(
+        IF(?birth_class = pkg:PretermBirth,
+           "Preterm",
+           IF(?birth_class = pkg:TermBirth,
+              "Term", "Other")
+        ) AS ?birth_type
+    )
+    FILTER(?birth_type != "Other")
+
+    OPTIONAL {
+        ?birth pkg:exposedTo ?heat_exp .
+        ?heat_exp rdf:type pkg:ExtremeHeatExposure .
+        ?heat_exp pkg:extremeHeatDays ?heat_days .
+    }
+}
+GROUP BY ?birth_type
+ORDER BY ?birth_type
