@@ -1,0 +1,316 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix pkg:  <http://perinatalkg.org/ontology/> .
+
+pkg:PerinatalKGOntology rdf:type owl:Ontology ;
+    rdfs:label "PerinatalKG Full Ontology"@en ;
+    rdfs:label "Ontologia PerinatalKG Completa"@pt ;
+    dct:creator "Clarimar José Coelho"@pt ;
+    owl:versionInfo "0.3.0" ;
+    dct:date "2026-05-27"^^xsd:date .
+
+pkg:Birth rdf:type owl:Class ;
+    rdfs:label "Birth"@en ; rdfs:label "Nascimento"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> ;
+    skos:exactMatch <http://snomed.info/id/3950001> .
+
+pkg:PretermBirth rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Birth ;
+    rdfs:label "Preterm Birth"@en ; rdfs:label "Nascimento Prematuro"@pt ;
+    skos:exactMatch <http://snomed.info/id/395122000> .
+
+pkg:PretermBirthExtreme rdf:type owl:Class ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    rdfs:label "Extremely Preterm Birth"@en ;
+    rdfs:label "Prematuro Extremo"@pt ;
+    rdfs:comment "< 28 semanas"@pt .
+
+pkg:PretermBirthEarly rdf:type owl:Class ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    rdfs:label "Very Preterm Birth"@en ;
+    rdfs:label "Prematuro Muito Precoce"@pt ;
+    rdfs:comment "28 a 31 semanas"@pt .
+
+pkg:PretermBirthModerate rdf:type owl:Class ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    rdfs:label "Moderate Preterm Birth"@en ;
+    rdfs:label "Prematuro Moderado"@pt ;
+    rdfs:comment "32 a 33 semanas"@pt .
+
+pkg:PretermBirthLate rdf:type owl:Class ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    rdfs:label "Late Preterm Birth"@en ;
+    rdfs:label "Prematuro Tardio"@pt ;
+    rdfs:comment "34 a 36 semanas"@pt .
+
+pkg:TermBirth rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Birth ;
+    rdfs:label "Term Birth"@en ; rdfs:label "Nascimento a Termo"@pt ;
+    owl:disjointWith pkg:PretermBirth .
+
+pkg:PostTermBirth rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Birth ;
+    rdfs:label "Post-term Birth"@en ;
+    rdfs:label "Nascimento Pos-Termo"@pt ;
+    rdfs:comment ">= 42 semanas"@pt .
+
+pkg:LowBirthWeight rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Birth ;
+    rdfs:label "Low Birth Weight"@en ;
+    rdfs:label "Baixo Peso ao Nascer"@pt ;
+    skos:exactMatch <http://snomed.info/id/276610007> .
+
+pkg:VeryLowBirthWeight rdf:type owl:Class ;
+    rdfs:subClassOf pkg:LowBirthWeight ;
+    rdfs:label "Very Low Birth Weight"@en ;
+    rdfs:label "Muito Baixo Peso ao Nascer"@pt .
+
+pkg:ExtremeLowBirthWeight rdf:type owl:Class ;
+    rdfs:subClassOf pkg:VeryLowBirthWeight ;
+    rdfs:label "Extremely Low Birth Weight"@en ;
+    rdfs:label "Extremo Baixo Peso ao Nascer"@pt ;
+    rdfs:comment "< 1000g"@pt .
+
+pkg:MacrosomicBirth rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Birth ;
+    rdfs:label "Macrosomic Birth"@en ;
+    rdfs:label "Macrossomia"@pt ;
+    rdfs:comment "> 4000g"@pt .
+
+pkg:HighRiskBirth rdf:type owl:Class ;
+    rdfs:label "High Risk Birth"@en ;
+    rdfs:label "Nascimento de Alto Risco"@pt ;
+    owl:equivalentClass [ rdf:type owl:Class ;
+        owl:intersectionOf ( pkg:PretermBirth pkg:LowBirthWeight ) ] .
+
+pkg:Delivery rdf:type owl:Class ;
+    rdfs:label "Delivery"@en ; rdfs:label "Parto"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> .
+
+pkg:VaginalDelivery rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Delivery ;
+    rdfs:label "Vaginal Delivery"@en ; rdfs:label "Parto Vaginal"@pt ;
+    skos:exactMatch <http://snomed.info/id/48782003> .
+
+pkg:CesareanDelivery rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Delivery ;
+    rdfs:label "Cesarean Delivery"@en ; rdfs:label "Parto Cesareo"@pt ;
+    skos:exactMatch <http://snomed.info/id/11466000> ;
+    owl:disjointWith pkg:VaginalDelivery .
+
+pkg:Mother rdf:type owl:Class ;
+    rdfs:label "Mother"@en ; rdfs:label "Mae"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> .
+
+pkg:AdolescentMother rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Mother ;
+    rdfs:label "Adolescent Mother"@en ;
+    rdfs:label "Mae Adolescente"@pt ;
+    rdfs:comment "< 20 anos"@pt .
+
+pkg:ElderlyMother rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Mother ;
+    rdfs:label "Elderly Mother"@en ;
+    rdfs:label "Gestante Idosa"@pt ;
+    rdfs:comment ">= 35 anos"@pt .
+
+pkg:ClimateExposure rdf:type owl:Class ;
+    rdfs:label "Climate Exposure"@en ;
+    rdfs:label "Exposicao Climatica"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> .
+
+pkg:HeatExposure rdf:type owl:Class ;
+    rdfs:subClassOf pkg:ClimateExposure ;
+    rdfs:label "Heat Exposure"@en ; rdfs:label "Exposicao ao Calor"@pt .
+
+pkg:ExtremeHeatExposure rdf:type owl:Class ;
+    rdfs:subClassOf pkg:HeatExposure ;
+    rdfs:label "Extreme Heat Exposure"@en ;
+    rdfs:label "Exposicao a Calor Extremo"@pt .
+
+pkg:ColdExposure rdf:type owl:Class ;
+    rdfs:subClassOf pkg:ClimateExposure ;
+    rdfs:label "Cold Exposure"@en ; rdfs:label "Exposicao ao Frio"@pt .
+
+pkg:DroughtExposure rdf:type owl:Class ;
+    rdfs:subClassOf pkg:ClimateExposure ;
+    rdfs:label "Drought Exposure"@en ; rdfs:label "Exposicao a Seca"@pt .
+
+pkg:Location rdf:type owl:Class ;
+    rdfs:label "Location"@en ; rdfs:label "Localizacao"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000029> .
+
+pkg:Municipality rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Location ;
+    rdfs:label "Municipality"@en ; rdfs:label "Municipio"@pt .
+
+pkg:State rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Location ;
+    rdfs:label "State"@en ; rdfs:label "Estado"@pt .
+
+pkg:Region rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Location ;
+    rdfs:label "Region"@en ; rdfs:label "Regiao"@pt .
+
+pkg:Biome rdf:type owl:Class ;
+    rdfs:subClassOf pkg:Location ;
+    rdfs:label "Biome"@en ; rdfs:label "Bioma"@pt .
+
+pkg:birthWeight rdf:type owl:DatatypeProperty ;
+    rdfs:label "birth weight (grams)"@en ;
+    rdfs:label "peso ao nascer (gramas)"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: PESO"@pt .
+
+pkg:gestationalAge rdf:type owl:DatatypeProperty ;
+    rdfs:label "gestational age (weeks)"@en ;
+    rdfs:label "idade gestacional (semanas)"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: GESTACAO"@pt .
+
+pkg:apgar1min rdf:type owl:DatatypeProperty ;
+    rdfs:label "Apgar 1 minute"@en ; rdfs:label "Apgar 1 minuto"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: APGAR1"@pt .
+
+pkg:apgar5min rdf:type owl:DatatypeProperty ;
+    rdfs:label "Apgar 5 minutes"@en ; rdfs:label "Apgar 5 minutos"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: APGAR5"@pt .
+
+pkg:sex rdf:type owl:DatatypeProperty ;
+    rdfs:label "sex"@en ; rdfs:label "sexo"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:string ;
+    rdfs:comment "SINASC: SEXO"@pt .
+
+pkg:birthLength rdf:type owl:DatatypeProperty ;
+    rdfs:label "birth length (cm)"@en ;
+    rdfs:label "comprimento ao nascer (cm)"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:decimal ;
+    rdfs:comment "SINASC: COMPAB"@pt .
+
+pkg:congenitalAnomaly rdf:type owl:DatatypeProperty ;
+    rdfs:label "congenital anomaly"@en ;
+    rdfs:label "anomalia congenita"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range xsd:boolean ;
+    rdfs:comment "SINASC: IDANOMAL"@pt .
+
+pkg:maternalAge rdf:type owl:DatatypeProperty ;
+    rdfs:label "maternal age (years)"@en ;
+    rdfs:label "idade materna (anos)"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: IDADEMAE"@pt .
+
+pkg:prenatalVisits rdf:type owl:DatatypeProperty ;
+    rdfs:label "prenatal visits"@en ;
+    rdfs:label "consultas pre-natal"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: CONSULTAS"@pt .
+
+pkg:parityCount rdf:type owl:DatatypeProperty ;
+    rdfs:label "parity count"@en ;
+    rdfs:label "numero de partos anteriores"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: QTDPARTNOR + QTDPARTCES"@pt .
+
+pkg:gestationCount rdf:type owl:DatatypeProperty ;
+    rdfs:label "gestation count"@en ;
+    rdfs:label "numero de gestacoes"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: QTDGESTANT"@pt .
+
+pkg:liveChildrenCount rdf:type owl:DatatypeProperty ;
+    rdfs:label "live children count"@en ;
+    rdfs:label "filhos vivos"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range xsd:integer ;
+    rdfs:comment "SINASC: QTDFILVIVO"@pt .
+
+pkg:maritalStatus rdf:type owl:DatatypeProperty ;
+    rdfs:label "marital status"@en ; rdfs:label "estado civil"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range xsd:string ;
+    rdfs:comment "SINASC: ESTCIVMAE"@pt .
+
+pkg:meanTemperature rdf:type owl:DatatypeProperty ;
+    rdfs:label "mean temperature"@en ;
+    rdfs:label "temperatura media"@pt ;
+    rdfs:domain pkg:ClimateExposure ; rdfs:range xsd:decimal ;
+    rdfs:comment "BR-DWGD"@pt .
+
+pkg:maxTemperature rdf:type owl:DatatypeProperty ;
+    rdfs:label "max temperature"@en ;
+    rdfs:label "temperatura maxima"@pt ;
+    rdfs:domain pkg:ClimateExposure ; rdfs:range xsd:decimal .
+
+pkg:precipitation rdf:type owl:DatatypeProperty ;
+    rdfs:label "precipitation (mm)"@en ;
+    rdfs:label "precipitacao (mm)"@pt ;
+    rdfs:domain pkg:ClimateExposure ; rdfs:range xsd:decimal ;
+    rdfs:comment "BR-DWGD"@pt .
+
+pkg:extremeHeatDays rdf:type owl:DatatypeProperty ;
+    rdfs:label "extreme heat days"@en ;
+    rdfs:label "dias de calor extremo"@pt ;
+    rdfs:domain pkg:ClimateExposure ; rdfs:range xsd:integer .
+
+pkg:idhm rdf:type owl:DatatypeProperty ;
+    rdfs:label "IDHM"@en ; rdfs:label "IDH Municipal"@pt ;
+    rdfs:domain pkg:Municipality ; rdfs:range xsd:decimal .
+
+pkg:populationSize rdf:type owl:DatatypeProperty ;
+    rdfs:label "population size"@en ; rdfs:label "populacao"@pt ;
+    rdfs:domain pkg:Municipality ; rdfs:range xsd:integer .
+
+pkg:bornBy rdf:type owl:ObjectProperty ;
+    rdfs:label "born by"@en ; rdfs:label "nascido de"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range pkg:Mother .
+
+pkg:bornIn rdf:type owl:ObjectProperty ;
+    rdfs:label "born in"@en ; rdfs:label "nascido em"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range pkg:Municipality .
+
+pkg:exposedTo rdf:type owl:ObjectProperty ;
+    rdfs:label "exposed to"@en ; rdfs:label "exposto a"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range pkg:ClimateExposure .
+
+pkg:deliveryType rdf:type owl:ObjectProperty ;
+    rdfs:label "delivery type"@en ; rdfs:label "tipo de parto"@pt ;
+    rdfs:domain pkg:Birth ; rdfs:range pkg:Delivery .
+
+pkg:locatedIn rdf:type owl:ObjectProperty ;
+    rdfs:label "located in"@en ; rdfs:label "localizado em"@pt ;
+    rdfs:domain pkg:Municipality ; rdfs:range pkg:State .
+
+pkg:partOf rdf:type owl:ObjectProperty ;
+    rdfs:label "part of"@en ; rdfs:label "parte de"@pt ;
+    rdfs:domain pkg:State ; rdfs:range pkg:Region .
+
+pkg:hasEducation rdf:type owl:ObjectProperty ;
+    rdfs:label "has education"@en ; rdfs:label "escolaridade"@pt ;
+    rdfs:domain pkg:Mother ; rdfs:range pkg:EducationLevel .
+
+pkg:hasBiome rdf:type owl:ObjectProperty ;
+    rdfs:label "has biome"@en ; rdfs:label "bioma"@pt ;
+    rdfs:domain pkg:Municipality ; rdfs:range pkg:Biome .
+
+pkg:EducationLevel rdf:type owl:Class ;
+    rdfs:label "Education Level"@en ; rdfs:label "Escolaridade"@pt .
+
+pkg:NoEducation rdf:type owl:Class ;
+    rdfs:subClassOf pkg:EducationLevel ;
+    rdfs:label "No Education"@en ; rdfs:label "Sem Escolaridade"@pt .
+
+pkg:PrimaryEducation rdf:type owl:Class ;
+    rdfs:subClassOf pkg:EducationLevel ;
+    rdfs:label "Primary Education"@en ; rdfs:label "Ensino Fundamental"@pt .
+
+pkg:SecondaryEducation rdf:type owl:Class ;
+    rdfs:subClassOf pkg:EducationLevel ;
+    rdfs:label "Secondary Education"@en ; rdfs:label "Ensino Medio"@pt .
+
+pkg:TertiaryEducation rdf:type owl:Class ;
+    rdfs:subClassOf pkg:EducationLevel ;
+    rdfs:label "Tertiary Education"@en ; rdfs:label "Ensino Superior"@pt .
