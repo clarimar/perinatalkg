@@ -1,0 +1,522 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix pkg: <http://perinatalkg.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pkg:AdolescentMother a owl:Class ;
+    rdfs:label "Adolescent Mother"@en,
+        "Mae Adolescente"@pt ;
+    rdfs:comment "< 20 anos"@pt ;
+    rdfs:subClassOf pkg:Mother ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/Z64.0> ;
+    skos:exactMatch <http://snomed.info/id/133906008> .
+
+pkg:CesareanDelivery a owl:Class ;
+    rdfs:label "Cesarean Delivery"@en,
+        "Parto Cesareo"@pt ;
+    rdfs:subClassOf pkg:Delivery ;
+    owl:disjointWith pkg:VaginalDelivery ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/O82> ;
+    skos:exactMatch <http://snomed.info/id/11466000> .
+
+pkg:ColdExposure a owl:Class ;
+    rdfs:label "Cold Exposure"@en,
+        "Exposicao ao Frio"@pt ;
+    rdfs:subClassOf pkg:ClimateExposure .
+
+pkg:DroughtExposure a owl:Class ;
+    rdfs:label "Drought Exposure"@en,
+        "Exposicao a Seca"@pt ;
+    rdfs:subClassOf pkg:ClimateExposure .
+
+pkg:ElderlyMother a owl:Class ;
+    rdfs:label "Elderly Mother"@en,
+        "Gestante Idosa"@pt ;
+    rdfs:comment ">= 35 anos"@pt ;
+    rdfs:subClassOf pkg:Mother .
+
+pkg:ExtremeHeatExposure a owl:Class ;
+    rdfs:label "Extreme Heat Exposure"@en,
+        "Exposicao a Calor Extremo"@pt ;
+    iao:0000115 "A climate exposure process where mean temperature exceeds the 90th percentile."@en ;
+    rdfs:subClassOf pkg:HeatExposure .
+
+pkg:ExtremeLowBirthWeight a owl:Class ;
+    rdfs:label "Extremely Low Birth Weight"@en,
+        "Extremo Baixo Peso ao Nascer"@pt ;
+    rdfs:comment "< 1000g"@pt ;
+    rdfs:subClassOf pkg:VeryLowBirthWeight ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.0> ;
+    skos:exactMatch <http://snomed.info/id/290572006> .
+
+pkg:HighRiskBirth a owl:Class ;
+    rdfs:label "High Risk Birth"@en,
+        "Nascimento de Alto Risco"@pt ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( pkg:PretermBirth pkg:LowBirthWeight ) ] .
+
+pkg:MacrosomicBirth a owl:Class ;
+    rdfs:label "Macrosomic Birth"@en,
+        "Macrossomia"@pt ;
+    rdfs:comment "> 4000g"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P08.0> ;
+    skos:exactMatch <http://snomed.info/id/237204003> .
+
+pkg:MultiplePregnancy skos:closeMatch <http://hl7.org/fhir/sid/icd-10/O30> ;
+    skos:exactMatch <http://snomed.info/id/16356006> .
+
+pkg:NoEducation a owl:Class ;
+    rdfs:label "No Education"@en,
+        "Sem Escolaridade"@pt ;
+    rdfs:subClassOf pkg:EducationLevel .
+
+pkg:PerinatalKGOntology a owl:Ontology ;
+    rdfs:label "PerinatalKG Full Ontology"@en,
+        "Ontologia PerinatalKG Completa"@pt ;
+    dct:contributor <https://orcid.org/0000-0000-YYYY-YYYY> ;
+    dct:creator <https://orcid.org/0000-0000-XXXX-XXXX>,
+        "Clarimar José Coelho"@pt ;
+    dct:date "2026-05-27"^^xsd:date ;
+    dct:identifier "http://perinatalkg.org/ontology/" ;
+    dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+    dct:rights "Apache License 2.0" ;
+    dct:title "PerinatalKG Ontology"@en,
+        "Ontologia PerinatalKG"@pt ;
+    pav:createdOn "2026-04-29"^^xsd:date ;
+    pav:lastUpdatedOn "2026-05-27"^^xsd:date ;
+    pav:version "0.3.0" ;
+    oboInOwl:default_namespace "PKG" ;
+    oboInOwl:hasOBONamespace "perinatalkg" ;
+    rdfs:seeAlso <https://github.com/clarimar/perinatalkg> ;
+    owl:versionIRI pkg:0.3.0 ;
+    owl:versionInfo "0.3.0" .
+
+pkg:PostTermBirth a owl:Class ;
+    rdfs:label "Post-term Birth"@en,
+        "Nascimento Pos-Termo"@pt ;
+    rdfs:comment ">= 42 semanas"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:exactMatch <http://snomed.info/id/90968009> .
+
+pkg:Pregnancy skos:exactMatch <http://snomed.info/id/364320009> .
+
+pkg:PretermBirthEarly a owl:Class ;
+    rdfs:label "Very Preterm Birth"@en,
+        "Prematuro Muito Precoce"@pt ;
+    rdfs:comment "28 a 31 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.3> .
+
+pkg:PretermBirthExtreme a owl:Class ;
+    rdfs:label "Extremely Preterm Birth"@en,
+        "Prematuro Extremo"@pt ;
+    rdfs:comment "< 28 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.2> ;
+    skos:exactMatch <http://snomed.info/id/310585006> .
+
+pkg:PretermBirthLate a owl:Class ;
+    rdfs:label "Late Preterm Birth"@en,
+        "Prematuro Tardio"@pt ;
+    rdfs:comment "34 a 36 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.3> ;
+    skos:exactMatch <http://snomed.info/id/415068001> .
+
+pkg:PretermBirthModerate a owl:Class ;
+    rdfs:label "Moderate Preterm Birth"@en,
+        "Prematuro Moderado"@pt ;
+    rdfs:comment "32 a 33 semanas"@pt ;
+    rdfs:subClassOf pkg:PretermBirth .
+
+pkg:PrimaryEducation a owl:Class ;
+    rdfs:label "Primary Education"@en,
+        "Ensino Fundamental"@pt ;
+    rdfs:subClassOf pkg:EducationLevel .
+
+pkg:SecondaryEducation a owl:Class ;
+    rdfs:label "Secondary Education"@en,
+        "Ensino Medio"@pt ;
+    rdfs:subClassOf pkg:EducationLevel .
+
+pkg:TermBirth a owl:Class ;
+    rdfs:label "Term Birth"@en,
+        "Nascimento a Termo"@pt ;
+    rdfs:subClassOf pkg:Birth ;
+    owl:disjointWith pkg:PretermBirth ;
+    skos:exactMatch <http://snomed.info/id/442311008> .
+
+pkg:TertiaryEducation a owl:Class ;
+    rdfs:label "Tertiary Education"@en,
+        "Ensino Superior"@pt ;
+    rdfs:subClassOf pkg:EducationLevel .
+
+pkg:apgar1min a owl:DatatypeProperty ;
+    rdfs:label "Apgar 1 minute"@en,
+        "Apgar 1 minuto"@pt ;
+    rdfs:comment "SINASC: APGAR1"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer ;
+    skos:exactMatch loinc:9272-6 .
+
+pkg:apgar5min a owl:DatatypeProperty ;
+    rdfs:label "Apgar 5 minutes"@en,
+        "Apgar 5 minutos"@pt ;
+    rdfs:comment "SINASC: APGAR5"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer ;
+    skos:exactMatch loinc:9274-2 .
+
+pkg:birthLength a owl:DatatypeProperty ;
+    rdfs:label "birth length (cm)"@en,
+        "comprimento ao nascer (cm)"@pt ;
+    rdfs:comment "SINASC: COMPAB"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:decimal ;
+    skos:exactMatch loinc:8305-5 .
+
+pkg:birthWeight a owl:DatatypeProperty ;
+    rdfs:label "birth weight (grams)"@en,
+        "peso ao nascer (gramas)"@pt ;
+    rdfs:comment "SINASC: PESO"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer ;
+    skos:exactMatch loinc:8339-4 .
+
+pkg:bornBy a owl:ObjectProperty ;
+    rdfs:label "born by"@en,
+        "nascido de"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Mother .
+
+pkg:bornIn a owl:ObjectProperty ;
+    rdfs:label "born in"@en,
+        "nascido em"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Municipality .
+
+pkg:congenitalAnomaly a owl:DatatypeProperty ;
+    rdfs:label "congenital anomaly"@en,
+        "anomalia congenita"@pt ;
+    rdfs:comment "SINASC: IDANOMAL"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:boolean .
+
+pkg:deliveryType a owl:ObjectProperty ;
+    rdfs:label "delivery type"@en,
+        "tipo de parto"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:Delivery .
+
+pkg:exposedTo a owl:ObjectProperty ;
+    rdfs:label "exposed to"@en,
+        "exposto a"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range pkg:ClimateExposure .
+
+pkg:extremeHeatDays a owl:DatatypeProperty ;
+    rdfs:label "extreme heat days"@en,
+        "dias de calor extremo"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:integer .
+
+pkg:gestationCount a owl:DatatypeProperty ;
+    rdfs:label "gestation count"@en,
+        "numero de gestacoes"@pt ;
+    rdfs:comment "SINASC: QTDGESTANT"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkg:gestationalAge a owl:DatatypeProperty ;
+    rdfs:label "gestational age (weeks)"@en,
+        "idade gestacional (semanas)"@pt ;
+    rdfs:comment "SINASC: GESTACAO"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:integer ;
+    skos:exactMatch loinc:11884-4 .
+
+pkg:hasBiome a owl:ObjectProperty ;
+    rdfs:label "has biome"@en,
+        "bioma"@pt ;
+    rdfs:domain pkg:Municipality ;
+    rdfs:range pkg:Biome .
+
+pkg:hasEducation a owl:ObjectProperty ;
+    rdfs:label "has education"@en,
+        "escolaridade"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range pkg:EducationLevel .
+
+pkg:idhm a owl:DatatypeProperty ;
+    rdfs:label "IDHM"@en,
+        "IDH Municipal"@pt ;
+    rdfs:domain pkg:Municipality ;
+    rdfs:range xsd:decimal .
+
+pkg:liveChildrenCount a owl:DatatypeProperty ;
+    rdfs:label "live children count"@en,
+        "filhos vivos"@pt ;
+    rdfs:comment "SINASC: QTDFILVIVO"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkg:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en,
+        "localizado em"@pt ;
+    rdfs:domain pkg:Municipality ;
+    rdfs:range pkg:State .
+
+pkg:maritalStatus a owl:DatatypeProperty ;
+    rdfs:label "marital status"@en,
+        "estado civil"@pt ;
+    rdfs:comment "SINASC: ESTCIVMAE"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:string .
+
+pkg:maternalAge a owl:DatatypeProperty ;
+    rdfs:label "maternal age (years)"@en,
+        "idade materna (anos)"@pt ;
+    rdfs:comment "SINASC: IDADEMAE"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer ;
+    skos:exactMatch loinc:21840-4 .
+
+pkg:maxTemperature a owl:DatatypeProperty ;
+    rdfs:label "max temperature"@en,
+        "temperatura maxima"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:decimal .
+
+pkg:meanTemperature a owl:DatatypeProperty ;
+    rdfs:label "mean temperature"@en,
+        "temperatura media"@pt ;
+    rdfs:comment "BR-DWGD"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:decimal .
+
+pkg:parityCount a owl:DatatypeProperty ;
+    rdfs:label "parity count"@en,
+        "numero de partos anteriores"@pt ;
+    rdfs:comment "SINASC: QTDPARTNOR + QTDPARTCES"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer .
+
+pkg:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en,
+        "parte de"@pt ;
+    rdfs:domain pkg:State ;
+    rdfs:range pkg:Region .
+
+pkg:populationSize a owl:DatatypeProperty ;
+    rdfs:label "population size"@en,
+        "populacao"@pt ;
+    rdfs:domain pkg:Municipality ;
+    rdfs:range xsd:integer .
+
+pkg:precipitation a owl:DatatypeProperty ;
+    rdfs:label "precipitation (mm)"@en,
+        "precipitacao (mm)"@pt ;
+    rdfs:comment "BR-DWGD"@pt ;
+    rdfs:domain pkg:ClimateExposure ;
+    rdfs:range xsd:decimal .
+
+pkg:prenatalVisits a owl:DatatypeProperty ;
+    rdfs:label "prenatal visits"@en,
+        "consultas pre-natal"@pt ;
+    rdfs:comment "SINASC: CONSULTAS"@pt ;
+    rdfs:domain pkg:Mother ;
+    rdfs:range xsd:integer ;
+    skos:exactMatch loinc:68493-6 .
+
+pkg:sex a owl:DatatypeProperty ;
+    rdfs:label "sex"@en,
+        "sexo"@pt ;
+    rdfs:comment "SINASC: SEXO"@pt ;
+    rdfs:domain pkg:Birth ;
+    rdfs:range xsd:string .
+
+<http://hl7.org/fhir/sid/icd-10/O30> rdfs:label "Multiple gestation"@en,
+        "CID-10: O30"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/O80> rdfs:label "Single spontaneous delivery"@en,
+        "CID-10: O80"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/O82> rdfs:label "Single delivery by caesarean section"@en,
+        "CID-10: O82"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/P07> rdfs:label "Disorders related to short gestation"@en,
+        "CID-10: P07"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/P07.1> rdfs:label "Other low birth weight newborn"@en,
+        "CID-10: P07.1"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/P07.2> rdfs:label "Extreme immaturity of newborn"@en,
+        "CID-10: P07.2"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/P08.0> rdfs:label "Exceptionally large newborn baby"@en,
+        "CID-10: P08.0"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/Z38> rdfs:label "Liveborn infants according to place of birth"@en,
+        "CID-10: Z38"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/Z64.0> rdfs:label "Problems related to unwanted pregnancy"@en,
+        "CID-10: Z64.0"@pt .
+
+loinc:11884-4 rdfs:label "Gestational age Estimated"@en .
+
+loinc:21840-4 rdfs:label "Date of birth"@en .
+
+loinc:68493-6 rdfs:label "Prenatal visits count"@en .
+
+loinc:8305-5 rdfs:label "Body height Measured --at birth"@en .
+
+loinc:8339-4 rdfs:label "Body weight Measured --at birth"@en .
+
+loinc:9272-6 rdfs:label "1 minute Apgar Score"@en .
+
+loinc:9274-2 rdfs:label "5 minute Apgar Score"@en .
+
+pkg:Biome a owl:Class ;
+    rdfs:label "Biome"@en,
+        "Bioma"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:HeatExposure a owl:Class ;
+    rdfs:label "Heat Exposure"@en,
+        "Exposicao ao Calor"@pt ;
+    rdfs:subClassOf pkg:ClimateExposure .
+
+pkg:Region a owl:Class ;
+    rdfs:label "Region"@en,
+        "Regiao"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:VaginalDelivery a owl:Class ;
+    rdfs:label "Vaginal Delivery"@en,
+        "Parto Vaginal"@pt ;
+    rdfs:subClassOf pkg:Delivery ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/O80> ;
+    skos:exactMatch <http://snomed.info/id/48782003> .
+
+pkg:VeryLowBirthWeight a owl:Class ;
+    rdfs:label "Very Low Birth Weight"@en,
+        "Muito Baixo Peso ao Nascer"@pt ;
+    rdfs:subClassOf pkg:LowBirthWeight ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.0> ;
+    skos:exactMatch <http://snomed.info/id/28334000> .
+
+<http://snomed.info/id/11466000> rdfs:label "Cesarean section"@en .
+
+<http://snomed.info/id/133906008> rdfs:label "Mother (person)"@en .
+
+<http://snomed.info/id/16356006> rdfs:label "Multiple pregnancy"@en .
+
+<http://snomed.info/id/237204003> rdfs:label "Macrosomic infant"@en .
+
+<http://snomed.info/id/276610007> rdfs:label "Low birth weight infant"@en .
+
+<http://snomed.info/id/28334000> rdfs:label "Very low birth weight infant"@en .
+
+<http://snomed.info/id/290572006> rdfs:label "Extremely low birth weight infant"@en .
+
+<http://snomed.info/id/303071001> rdfs:label "Person in the maternal role"@en .
+
+<http://snomed.info/id/310585006> rdfs:label "Extreme prematurity of newborn"@en .
+
+<http://snomed.info/id/364320009> rdfs:label "Pregnancy observable"@en .
+
+<http://snomed.info/id/3950001> rdfs:label "Live birth (finding)"@en .
+
+<http://snomed.info/id/395122000> rdfs:label "Premature birth of newborn"@en .
+
+<http://snomed.info/id/415068001> rdfs:label "Late preterm birth"@en .
+
+<http://snomed.info/id/442311008> rdfs:label "Liveborn born in hospital"@en .
+
+<http://snomed.info/id/48782003> rdfs:label "Delivery normal"@en .
+
+<http://snomed.info/id/90968009> rdfs:label "Post-term birth"@en .
+
+<https://orcid.org/0000-0000-XXXX-XXXX> a foaf:Person ;
+    foaf:mbox "clarimar@ufg.br" ;
+    foaf:name "Clarimar Jose Coelho" .
+
+<https://orcid.org/0000-0000-YYYY-YYYY> a foaf:Person ;
+    foaf:name "Guilherme Coelho" .
+
+<http://hl7.org/fhir/sid/icd-10/P07.0> rdfs:label "Extremely low birth weight newborn"@en,
+        "CID-10: P07.0"@pt .
+
+<http://hl7.org/fhir/sid/icd-10/P07.3> rdfs:label "Other preterm newborns"@en,
+        "CID-10: P07.3"@pt .
+
+pkg:LowBirthWeight a owl:Class ;
+    rdfs:label "Low Birth Weight"@en,
+        "Baixo Peso ao Nascer"@pt ;
+    iao:0000115 "A birth in which the newborn weighs less than 2500 grams, regardless of gestational age."@en ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.1> ;
+    skos:exactMatch <http://snomed.info/id/276610007> .
+
+pkg:State a owl:Class ;
+    rdfs:label "State"@en,
+        "Estado"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:Delivery a owl:Class ;
+    rdfs:label "Delivery"@en,
+        "Parto"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> .
+
+pkg:Location a owl:Class ;
+    rdfs:label "Location"@en,
+        "Localizacao"@pt ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000029> .
+
+pkg:EducationLevel a owl:Class ;
+    rdfs:label "Education Level"@en,
+        "Escolaridade"@pt .
+
+pkg:Municipality a owl:Class ;
+    rdfs:label "Municipality"@en,
+        "Municipio"@pt ;
+    rdfs:subClassOf pkg:Location .
+
+pkg:PretermBirth a owl:Class ;
+    rdfs:label "Preterm Birth"@en,
+        "Nascimento Prematuro"@pt ;
+    iao:0000115 "A birth that occurs before 37 completed weeks of gestation."@en ;
+    rdfs:subClassOf pkg:Birth ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07> ;
+    skos:exactMatch <http://snomed.info/id/395122000> .
+
+pkg:ClimateExposure a owl:Class ;
+    rdfs:label "Climate Exposure"@en,
+        "Exposicao Climatica"@pt ;
+    iao:0000115 "A process of exposure to climatic conditions during a specified period of gestation."@en ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> .
+
+pkg:Mother a owl:Class ;
+    rdfs:label "Mother"@en,
+        "Mae"@pt ;
+    iao:0000115 "A person who has given birth to a child registered in the SINASC system."@en ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
+    skos:exactMatch <http://snomed.info/id/303071001> .
+
+pkg:Birth a owl:Class ;
+    rdfs:label "Birth"@en,
+        "Nascimento"@pt ;
+    iao:0000115 "A biological process consisting in the expulsion of a fetus from the uterus, resulting in a live newborn."@en ;
+    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> ;
+    skos:closeMatch <http://hl7.org/fhir/sid/icd-10/Z38> ;
+    skos:exactMatch <http://snomed.info/id/3950001> .
+
