@@ -1,6 +1,10 @@
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix loinc: <http://loinc.org/rdf#> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
 @prefix pkg: <http://perinatalkg.org/ontology/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -42,6 +46,7 @@ pkg:ElderlyMother a owl:Class ;
 pkg:ExtremeHeatExposure a owl:Class ;
     rdfs:label "Extreme Heat Exposure"@en,
         "Exposicao a Calor Extremo"@pt ;
+    iao:0000115 "A climate exposure process where mean temperature exceeds the 90th percentile."@en ;
     rdfs:subClassOf pkg:HeatExposure .
 
 pkg:ExtremeLowBirthWeight a owl:Class ;
@@ -77,8 +82,22 @@ pkg:NoEducation a owl:Class ;
 pkg:PerinatalKGOntology a owl:Ontology ;
     rdfs:label "PerinatalKG Full Ontology"@en,
         "Ontologia PerinatalKG Completa"@pt ;
-    dct:creator "Clarimar José Coelho"@pt ;
+    dct:contributor <https://orcid.org/0000-0000-YYYY-YYYY> ;
+    dct:creator <https://orcid.org/0000-0000-XXXX-XXXX>,
+        "Clarimar José Coelho"@pt ;
     dct:date "2026-05-27"^^xsd:date ;
+    dct:identifier "http://perinatalkg.org/ontology/" ;
+    dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+    dct:rights "Apache License 2.0" ;
+    dct:title "PerinatalKG Ontology"@en,
+        "Ontologia PerinatalKG"@pt ;
+    pav:createdOn "2026-04-29"^^xsd:date ;
+    pav:lastUpdatedOn "2026-05-27"^^xsd:date ;
+    pav:version "0.3.0" ;
+    oboInOwl:default_namespace "PKG" ;
+    oboInOwl:hasOBONamespace "perinatalkg" ;
+    rdfs:seeAlso <https://github.com/clarimar/perinatalkg> ;
+    owl:versionIRI pkg:0.3.0 ;
     owl:versionInfo "0.3.0" .
 
 pkg:PostTermBirth a owl:Class ;
@@ -427,6 +446,13 @@ pkg:VeryLowBirthWeight a owl:Class ;
 
 <http://snomed.info/id/90968009> rdfs:label "Post-term birth"@en .
 
+<https://orcid.org/0000-0000-XXXX-XXXX> a foaf:Person ;
+    foaf:mbox "clarimar@ufg.br" ;
+    foaf:name "Clarimar Jose Coelho" .
+
+<https://orcid.org/0000-0000-YYYY-YYYY> a foaf:Person ;
+    foaf:name "Guilherme Coelho" .
+
 <http://hl7.org/fhir/sid/icd-10/P07.0> rdfs:label "Extremely low birth weight newborn"@en,
         "CID-10: P07.0"@pt .
 
@@ -436,6 +462,7 @@ pkg:VeryLowBirthWeight a owl:Class ;
 pkg:LowBirthWeight a owl:Class ;
     rdfs:label "Low Birth Weight"@en,
         "Baixo Peso ao Nascer"@pt ;
+    iao:0000115 "A birth in which the newborn weighs less than 2500 grams, regardless of gestational age."@en ;
     rdfs:subClassOf pkg:Birth ;
     skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07.1> ;
     skos:exactMatch <http://snomed.info/id/276610007> .
@@ -467,6 +494,7 @@ pkg:Municipality a owl:Class ;
 pkg:PretermBirth a owl:Class ;
     rdfs:label "Preterm Birth"@en,
         "Nascimento Prematuro"@pt ;
+    iao:0000115 "A birth that occurs before 37 completed weeks of gestation."@en ;
     rdfs:subClassOf pkg:Birth ;
     skos:closeMatch <http://hl7.org/fhir/sid/icd-10/P07> ;
     skos:exactMatch <http://snomed.info/id/395122000> .
@@ -474,17 +502,20 @@ pkg:PretermBirth a owl:Class ;
 pkg:ClimateExposure a owl:Class ;
     rdfs:label "Climate Exposure"@en,
         "Exposicao Climatica"@pt ;
+    iao:0000115 "A process of exposure to climatic conditions during a specified period of gestation."@en ;
     rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> .
 
 pkg:Mother a owl:Class ;
     rdfs:label "Mother"@en,
         "Mae"@pt ;
+    iao:0000115 "A person who has given birth to a child registered in the SINASC system."@en ;
     rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
     skos:exactMatch <http://snomed.info/id/303071001> .
 
 pkg:Birth a owl:Class ;
     rdfs:label "Birth"@en,
         "Nascimento"@pt ;
+    iao:0000115 "A biological process consisting in the expulsion of a fetus from the uterus, resulting in a live newborn."@en ;
     rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> ;
     skos:closeMatch <http://hl7.org/fhir/sid/icd-10/Z38> ;
     skos:exactMatch <http://snomed.info/id/3950001> .
