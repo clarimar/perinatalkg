@@ -1,0 +1,162 @@
+@prefix pkg: <http://perinatalkg.org/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://perinatalkg.org/resource/location/520870> a pkg:Municipality ;
+    rdfs:label "Goiânia"@pt ;
+    pkg:locatedIn <http://perinatalkg.org/resource/location/state/GO> .
+
+<http://perinatalkg.org/resource/location/state/AC> a pkg:State ;
+    rdfs:label "AC"@en,
+        "Acre"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/AL> a pkg:State ;
+    rdfs:label "AL"@en,
+        "Alagoas"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/AM> a pkg:State ;
+    rdfs:label "AM"@en,
+        "Amazonas"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/AP> a pkg:State ;
+    rdfs:label "AP"@en,
+        "Amapá"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/BA> a pkg:State ;
+    rdfs:label "BA"@en,
+        "Bahia"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/CE> a pkg:State ;
+    rdfs:label "CE"@en,
+        "Ceará"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/DF> a pkg:State ;
+    rdfs:label "DF"@en,
+        "Distrito Federal"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/CO> .
+
+<http://perinatalkg.org/resource/location/state/ES> a pkg:State ;
+    rdfs:label "ES"@en,
+        "Espírito Santo"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/SE> .
+
+<http://perinatalkg.org/resource/location/state/MA> a pkg:State ;
+    rdfs:label "MA"@en,
+        "Maranhão"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/MG> a pkg:State ;
+    rdfs:label "MG"@en,
+        "Minas Gerais"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/SE> .
+
+<http://perinatalkg.org/resource/location/state/MS> a pkg:State ;
+    rdfs:label "MS"@en,
+        "Mato Grosso do Sul"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/CO> .
+
+<http://perinatalkg.org/resource/location/state/MT> a pkg:State ;
+    rdfs:label "MT"@en,
+        "Mato Grosso"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/CO> .
+
+<http://perinatalkg.org/resource/location/state/PA> a pkg:State ;
+    rdfs:label "PA"@en,
+        "Pará"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/PB> a pkg:State ;
+    rdfs:label "PB"@en,
+        "Paraíba"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/PE> a pkg:State ;
+    rdfs:label "PE"@en,
+        "Pernambuco"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/PI> a pkg:State ;
+    rdfs:label "PI"@en,
+        "Piauí"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/PR> a pkg:State ;
+    rdfs:label "PR"@en,
+        "Paraná"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/S> .
+
+<http://perinatalkg.org/resource/location/state/RJ> a pkg:State ;
+    rdfs:label "RJ"@en,
+        "Rio de Janeiro"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/SE> .
+
+<http://perinatalkg.org/resource/location/state/RN> a pkg:State ;
+    rdfs:label "RN"@en,
+        "Rio Grande do Norte"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/RO> a pkg:State ;
+    rdfs:label "RO"@en,
+        "Rondônia"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/RR> a pkg:State ;
+    rdfs:label "RR"@en,
+        "Roraima"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/RS> a pkg:State ;
+    rdfs:label "RS"@en,
+        "Rio Grande do Sul"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/S> .
+
+<http://perinatalkg.org/resource/location/state/SC> a pkg:State ;
+    rdfs:label "SC"@en,
+        "Santa Catarina"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/S> .
+
+<http://perinatalkg.org/resource/location/state/SE> a pkg:State ;
+    rdfs:label "SE"@en,
+        "Sergipe"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/NE> .
+
+<http://perinatalkg.org/resource/location/state/SP> a pkg:State ;
+    rdfs:label "SP"@en,
+        "São Paulo"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/SE> .
+
+<http://perinatalkg.org/resource/location/state/TO> a pkg:State ;
+    rdfs:label "TO"@en,
+        "Tocantins"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/N> .
+
+<http://perinatalkg.org/resource/location/state/GO> a pkg:State ;
+    rdfs:label "GO"@en,
+        "Goiás"@pt ;
+    pkg:partOf <http://perinatalkg.org/resource/location/region/CO> .
+
+<http://perinatalkg.org/resource/location/region/S> a pkg:Region ;
+    rdfs:label "S"@en,
+        "Sul"@pt .
+
+<http://perinatalkg.org/resource/location/region/CO> a pkg:Region ;
+    rdfs:label "CO"@en,
+        "CentroOeste"@pt .
+
+<http://perinatalkg.org/resource/location/region/SE> a pkg:Region ;
+    rdfs:label "SE"@en,
+        "Sudeste"@pt .
+
+<http://perinatalkg.org/resource/location/region/N> a pkg:Region ;
+    rdfs:label "N"@en,
+        "Norte"@pt .
+
+<http://perinatalkg.org/resource/location/region/NE> a pkg:Region ;
+    rdfs:label "NE"@en,
+        "Nordeste"@pt .
+
