@@ -13,7 +13,7 @@
 ## 👥 Team
 
 - **Clarimar José Coelho** - Technical Lead, First Author (Paper 1)
-  - Federal University of Goiás
+  - Pontifícia Universidade Católica de Goiás (PUC Goiás)
   - Email: clarimarc@gmail.com
   
 - **Guilherme Coelho** - Clinical Validation, First Author (Paper 2)
