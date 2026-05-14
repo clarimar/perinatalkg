@@ -1,6 +1,6 @@
 # PerinatalKG - Relatório de Progresso
 **Para:** Guilherme Coelho (UNICAMP/FCM)
-**De:** Clarimar José Coelho (UFG)
+**De:** Clarimar José Coelho (PUC Goiás)
 **Data:** 12 de Maio de 2026
 
 ## RESUMO EXECUTIVO
@@ -64,4 +64,4 @@ Semana 8: PENDENTE - Manuscrito Paper 1
 ## REPOSITORIO
 
 https://github.com/clarimar/perinatalkg
-Apache 2.0 - Clarimar Jose Coelho - UFG
+Apache 2.0 - Clarimar Jose Coelho - PUC Goiás

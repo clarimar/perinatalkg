@@ -8,6 +8,7 @@
 @prefix pkg: <http://perinatalkg.org/ontology/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -447,7 +448,8 @@ pkg:VeryLowBirthWeight a owl:Class ;
 <http://snomed.info/id/90968009> rdfs:label "Post-term birth"@en .
 
 <https://orcid.org/0000-0000-XXXX-XXXX> a foaf:Person ;
-    foaf:mbox "clarimar@ufg.br" ;
+    schema1:affiliation "Pontifícia Universidade Católica de Goiás (PUC Goiás)" ;
+    foaf:mbox "clarimarc@gmail.com" ;
     foaf:name "Clarimar Jose Coelho" .
 
 <https://orcid.org/0000-0000-YYYY-YYYY> a foaf:Person ;
