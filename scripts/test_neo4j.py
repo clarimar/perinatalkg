@@ -7,7 +7,7 @@ import os
 # Credenciais
 uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 user = os.getenv("NEO4J_USER", "neo4j")
-password = os.getenv("NEO4J_PASSWORD", "climaterna2025")
+password = os.getenv("NEO4J_PASSWORD", "changeme")
 
 print(f"🔌 Conectando ao Neo4j...")
 print(f"   URI: {uri}")

@@ -150,7 +150,7 @@ class FastLoader:
 def main():
     uri = "bolt://localhost:7687"
     user = "neo4j"
-    password = "climaterna2025"
+    password = os.getenv("NEO4J_PASSWORD", "changeme")
     data_path = Path.home() / "Projects/climaterna/data/linked"
     
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")

@@ -3,7 +3,7 @@ Inspecionar propriedades dos Birth nodes
 """
 from neo4j import GraphDatabase
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "climaterna2025"))
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", os.getenv("NEO4J_PASSWORD", "changeme")))
 
 with driver.session() as session:
     # Ver propriedades de um Birth node

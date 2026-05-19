@@ -147,7 +147,7 @@ class AdaptiveLoader:
                 print(f"   {r['tipo']:20s}: {r['total']:,}")
 
 def main():
-    loader = AdaptiveLoader("bolt://localhost:7687", "neo4j", "climaterna2025")
+    loader = AdaptiveLoader("bolt://localhost:7687", "neo4j", os.getenv("NEO4J_PASSWORD", "changeme"))
     
     try:
         print("🚀 CARREGAMENTO ADAPTATIVO - CONTINUANDO...")

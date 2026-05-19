@@ -131,7 +131,7 @@ class FullFieldsLoader:
         elapsed = time.time() - self.stats['start']
         print(f"\n✅ {self.stats['births']:,} em {elapsed/60:.1f} min")
 
-loader = FullFieldsLoader("bolt://localhost:7687", "neo4j", "climaterna2025")
+loader = FullFieldsLoader("bolt://localhost:7687", "neo4j", os.getenv("NEO4J_PASSWORD", "changeme"))
 
 print("⚠️  ATENÇÃO: Isso vai limpar o banco e recarregar tudo (~2h)")
 print("Continuar? (y/n):", end=' ')

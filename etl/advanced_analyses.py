@@ -4,7 +4,7 @@ Análises científicas avançadas do ClimaternaKG
 from neo4j import GraphDatabase
 import pandas as pd
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "climaterna2025"))
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", os.getenv("NEO4J_PASSWORD", "changeme")))
 
 print("\n" + "="*70)
 print("🔬 ANÁLISES CIENTÍFICAS AVANÇADAS - CLIMATERNAKQ")

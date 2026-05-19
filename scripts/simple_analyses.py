@@ -3,7 +3,7 @@ Análises científicas SIMPLIFICADAS (sem extrair ano)
 """
 from neo4j import GraphDatabase
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "climaterna2025"))
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", os.getenv("NEO4J_PASSWORD", "changeme")))
 
 print("\n" + "="*70)
 print("🔬 ANÁLISES CIENTÍFICAS - CLIMATERNAKQ")

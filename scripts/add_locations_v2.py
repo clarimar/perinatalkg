@@ -4,7 +4,7 @@ Adicionar Location nodes - VERSÃO 2 (com Birth tendo municipality_code)
 from neo4j import GraphDatabase
 from tqdm import tqdm
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "climaterna2025"))
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", os.getenv("NEO4J_PASSWORD", "changeme")))
 
 print("🗺️  Extraindo municípios únicos...")
 

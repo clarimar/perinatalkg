@@ -11,7 +11,7 @@ class FastReloader:
     def __init__(self):
         self.driver = GraphDatabase.driver(
             "bolt://localhost:7687", 
-            auth=("neo4j", "climaterna2025")
+            auth=("neo4j", os.getenv("NEO4J_PASSWORD", "changeme"))
         )
         self.stats = {'files': 0, 'births': 0, 'start': time.time()}
     

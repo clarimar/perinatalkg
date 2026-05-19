@@ -8,7 +8,7 @@ import os
 
 uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 user = os.getenv("NEO4J_USER", "neo4j")
-password = os.getenv("NEO4J_PASSWORD", "climaterna2025")
+password = os.getenv("NEO4J_PASSWORD", "changeme")
 
 print("🔌 Conectando ao Neo4j...")
 driver = GraphDatabase.driver(uri, auth=(user, password))

@@ -4,7 +4,7 @@ Adicionar Location nodes ao ClimaternaKG
 from neo4j import GraphDatabase
 from tqdm import tqdm
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "climaterna2025"))
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", os.getenv("NEO4J_PASSWORD", "changeme")))
 
 print("🗺️  Extraindo municípios únicos dos dados...")
 
