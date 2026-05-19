@@ -47,7 +47,9 @@ pkg:ElderlyMother a owl:Class ;
 pkg:ExtremeHeatExposure a owl:Class ;
     rdfs:label "Extreme Heat Exposure"@en,
         "Exposicao a Calor Extremo"@pt ;
-    iao:0000115 "A climate exposure process where mean temperature exceeds the 90th percentile."@en ;
+    iao:0000115 "A climate exposure process during the third trimester of gestation in which at least one day with maximum daily temperature exceeding 35°C was recorded in the municipality of residence, based on BR-DWGD gridded climate data."@en,
+        "Processo de exposição climática no terceiro trimestre gestacional em que pelo menos um dia com temperatura máxima diária acima de 35°C foi registrado no município de residência, com base nos dados gradeados BR-DWGD."@pt ;
+    rdfs:comment "Tmax > 35°C em pelo menos 1 dia do T3 (BR-DWGD)"@pt ;
     rdfs:subClassOf pkg:HeatExposure .
 
 pkg:ExtremeLowBirthWeight a owl:Class ;
