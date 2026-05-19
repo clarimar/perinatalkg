@@ -189,7 +189,7 @@ def main():
         print("="*60)
         print("\n🌐 Acesse: http://localhost:7474")
         print("   User: neo4j")
-        print("   Pass: climaterna2025")
+        print("   Pass: [set NEO4J_PASSWORD env var]")
         
     finally:
         loader.close()
