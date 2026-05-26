@@ -161,3 +161,33 @@ pkg:LowBirthWeightShape
         sh:message "LowBirthWeight DEVE ter peso < 2500g" ;
         sh:severity sh:Violation ;
     ] .
+
+# ════════════════════════════════════════════════
+# SHAPE 6: ApgarScore - Validação de Apgar
+# ════════════════════════════════════════════════
+
+pkg:ApgarShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass pkg:ApgarScore ;
+    rdfs:label "Apgar Score Validation Shape" ;
+    rdfs:comment "Valida que os escores de Apgar estão dentro do intervalo clínico válido (0-10)" ;
+
+    # Apgar 1 minuto: entre 0 e 10
+    sh:property [
+        sh:path pkg:apgar1min ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 10 ;
+        sh:message "Apgar 1 minuto deve ser inteiro entre 0 e 10" ;
+        sh:severity sh:Violation ;
+    ] ;
+
+    # Apgar 5 minutos: entre 0 e 10
+    sh:property [
+        sh:path pkg:apgar5min ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 10 ;
+        sh:message "Apgar 5 minutos deve ser inteiro entre 0 e 10" ;
+        sh:severity sh:Violation ;
+    ] .
