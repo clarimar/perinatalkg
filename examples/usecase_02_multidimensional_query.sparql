@@ -1,0 +1,25 @@
+# ============================================================
+# PerinatalKG - Use Case 02: Multidimensional JOIN
+# Preterm births with extreme heat exposure T3, by municipality
+# Result: 245 municipalities, execution time: 1.13s
+# ============================================================
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX pkg: <http://perinatalkg.org/ontology/>
+
+SELECT ?municipality (COUNT(?b) AS ?n_preterm_heat)
+WHERE {
+  ?b rdf:type pkg:PretermBirth .
+  ?b pkg:exposedTo ?exp .
+  ?exp rdf:type pkg:ExtremeHeatExposure .
+  ?b pkg:bornIn ?municipality .
+}
+GROUP BY ?municipality
+ORDER BY DESC(?n_preterm_heat)
+
+# Expected output (top 5, Goiás 2015-2024):
+# municipality_520870 (Goiânia):   11,035
+# municipality_520140 (Anápolis):   3,637
+# municipality_521880 (Rio Verde):  1,297
+# municipality_520110 (Aparecida):  1,200
+# municipality_522045 (Valparaíso): 1,166
