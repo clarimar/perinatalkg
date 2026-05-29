@@ -27,7 +27,8 @@ def classificar_prematuridade(ig):
         elif ig < 34: classes.append(PKG.PretermBirthModerate)
         else:         classes.append(PKG.PretermBirthLate)
     else:
-        classes.append(PKG.TermBirth)
+        if ig >= 42: classes.append(PKG.PostTermBirth)
+        else: classes.append(PKG.TermBirth)
     return classes
 
 def classificar_peso(peso):
