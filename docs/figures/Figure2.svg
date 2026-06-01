@@ -1,0 +1,95 @@
+<svg viewBox="0 0 2100 600" xmlns="http://www.w3.org/2000/svg"
+    font-family="Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="4" orient="auto">
+    <path d="M0,0 L0,8 L10,4 Z" fill="#475569"/>
+  </marker>
+</defs>
+<rect width="2100" height="600" fill="#FAFAFA"/>
+<rect x="5" y="5" width="2090" height="40" rx="5" fill="#334155" stroke="#1E293B" stroke-width="0"/>
+<text x="1050" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="white">PerinatalKG — ETL Pipeline and Knowledge Graph Construction</text>
+<text x="312" y="71" text-anchor="middle" font-size="15" font-weight="bold" fill="#1D4ED8">DATA SOURCES</text>
+<rect x="10" y="79" width="145" height="72" rx="5" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5"/>
+<text x="82" y="101" text-anchor="middle" font-size="18" font-weight="bold" fill="#1D4ED8">SINASC</text>
+<text x="82" y="121" text-anchor="middle" font-size="13" font-weight="normal" fill="#64748B">Live births</text>
+<text x="82" y="137" text-anchor="middle" font-size="12" font-weight="normal" fill="#64748B">DBC files</text>
+<rect x="163" y="79" width="145" height="72" rx="5" fill="#EFF6FF" stroke="#6B7280" stroke-width="1.5"/>
+<text x="235" y="101" text-anchor="middle" font-size="18" font-weight="bold" fill="#6B7280">SIM</text>
+<text x="235" y="121" text-anchor="middle" font-size="13" font-weight="normal" fill="#64748B">Neonatal deaths</text>
+<text x="235" y="137" text-anchor="middle" font-size="12" font-weight="normal" fill="#64748B">(linkage validation)</text>
+<rect x="316" y="79" width="145" height="72" rx="5" fill="#EFF6FF" stroke="#0369A1" stroke-width="1.5"/>
+<text x="388" y="101" text-anchor="middle" font-size="18" font-weight="bold" fill="#0369A1">BR-DWGD</text>
+<text x="388" y="121" text-anchor="middle" font-size="13" font-weight="normal" fill="#64748B">Gridded climate</text>
+<text x="388" y="137" text-anchor="middle" font-size="12" font-weight="normal" fill="#64748B">0.1° × 0.1°</text>
+<rect x="469" y="79" width="145" height="72" rx="5" fill="#EFF6FF" stroke="#854D0E" stroke-width="1.5"/>
+<text x="541" y="101" text-anchor="middle" font-size="18" font-weight="bold" fill="#854D0E">IBGE</text>
+<text x="541" y="121" text-anchor="middle" font-size="13" font-weight="normal" fill="#64748B">Municipalities</text>
+<text x="541" y="137" text-anchor="middle" font-size="12" font-weight="normal" fill="#64748B">centroids + HDI</text>
+<line x1="619" y1="115" x2="649" y2="115" stroke="#475569" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="654" y="77" width="215" height="195" rx="5" fill="#F0FDF4" stroke="#15803D" stroke-width="1.5"/>
+<rect x="654" y="77" width="215" height="38" rx="4" fill="#15803D" stroke="#15803D" stroke-width="0"/>
+<text x="761" y="93" text-anchor="middle" font-size="14" font-weight="bold" fill="white">STAGE 1</text>
+<text x="761" y="109" text-anchor="middle" font-size="14" font-weight="bold" fill="white">DBC → Parquet</text>
+<text x="761" y="132" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">R / microdatasus</text>
+<text x="761" y="155" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">DBC → CSV</text>
+<text x="761" y="178" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Polars (Parquet)</text>
+<line x1="666" y1="195" x2="857" y2="195" stroke="#15803D" stroke-width="0.6" stroke-dasharray="3,2"/>
+<text x="761" y="224" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Harmonisation</text>
+<text x="761" y="247" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Date normalisation</text>
+<line x1="873" y1="174" x2="903" y2="174" stroke="#475569" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="907" y="77" width="215" height="195" rx="5" fill="#FEFCE8" stroke="#854D0E" stroke-width="1.5"/>
+<rect x="907" y="77" width="215" height="38" rx="4" fill="#854D0E" stroke="#854D0E" stroke-width="0"/>
+<text x="1014" y="93" text-anchor="middle" font-size="14" font-weight="bold" fill="white">STAGE 2</text>
+<text x="1014" y="109" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Climate Linkage</text>
+<text x="1014" y="132" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Spatial join:</text>
+<text x="1014" y="155" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">centroid → BR-DWGD cell</text>
+<text x="1014" y="178" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">(nearest neighbour)</text>
+<text x="1014" y="201" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Trimester assignment:</text>
+<text x="1014" y="224" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">T1: wk 1–12  T2: wk 13–26</text>
+<text x="1014" y="247" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">T3: wk 27 – birth</text>
+<line x1="1126" y1="174" x2="1156" y2="174" stroke="#475569" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="1160" y="77" width="215" height="195" rx="5" fill="#FDF4FF" stroke="#7E22CE" stroke-width="1.5"/>
+<rect x="1160" y="77" width="215" height="38" rx="4" fill="#7E22CE" stroke="#7E22CE" stroke-width="0"/>
+<text x="1267" y="93" text-anchor="middle" font-size="14" font-weight="bold" fill="white">STAGE 3</text>
+<text x="1267" y="109" text-anchor="middle" font-size="14" font-weight="bold" fill="white">RDF Conversion</text>
+<text x="1267" y="132" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">rdflib 6.x (Python)</text>
+<text x="1267" y="155" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">~14 triples / birth</text>
+<text x="1267" y="178" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">OWL class typing</text>
+<text x="1267" y="201" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">PostTermBirth: IG ≥ 42w</text>
+<text x="1267" y="224" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">ExtremeHeat flag:</text>
+<text x="1267" y="247" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Tmax &gt; 35°C</text>
+<line x1="1379" y1="174" x2="1409" y2="174" stroke="#475569" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="1413" y="77" width="215" height="195" rx="5" fill="#FFF7ED" stroke="#9A3412" stroke-width="1.5"/>
+<rect x="1413" y="77" width="215" height="38" rx="4" fill="#9A3412" stroke="#9A3412" stroke-width="0"/>
+<text x="1520" y="93" text-anchor="middle" font-size="14" font-weight="bold" fill="white">STAGE 4</text>
+<text x="1520" y="109" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Fuseki Load</text>
+<text x="1520" y="132" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">Apache Jena Fuseki 6.0.0</text>
+<text x="1520" y="155" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">TDB2 persistent store</text>
+<text x="1520" y="178" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">HTTP POST (batch)</text>
+<line x1="1425" y1="195" x2="1616" y2="195" stroke="#9A3412" stroke-width="0.6" stroke-dasharray="3,2"/>
+<text x="1520" y="224" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">TDB2 deduplication</text>
+<text x="1520" y="247" text-anchor="middle" font-size="13" font-weight="normal" fill="#334155">(1 duplicate resolved)</text>
+<line x1="1632" y1="174" x2="1658" y2="174" stroke="#475569" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="1663" y="77" width="427" height="195" rx="6" fill="#F0F9FF" stroke="#0369A1" stroke-width="2"/>
+<rect x="1663" y="77" width="427" height="38" rx="5" fill="#0369A1" stroke="#0369A1" stroke-width="0"/>
+<text x="1876" y="92" text-anchor="middle" font-size="15" font-weight="bold" fill="white">SPARQL</text>
+<text x="1876" y="108" text-anchor="middle" font-size="15" font-weight="bold" fill="white">ENDPOINT</text>
+<text x="1769" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369A1">Triples</text>
+<text x="1769" y="154" text-anchor="middle" font-size="17" font-weight="bold" fill="#334155">13,334,157</text>
+<text x="1982" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369A1">Births</text>
+<text x="1982" y="154" text-anchor="middle" font-size="17" font-weight="bold" fill="#334155">934,806</text>
+<text x="1769" y="179" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369A1">Throughput</text>
+<text x="1769" y="201" text-anchor="middle" font-size="17" font-weight="bold" fill="#334155">4,439 / s</text>
+<text x="1982" y="179" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369A1">Load time</text>
+<text x="1982" y="201" text-anchor="middle" font-size="17" font-weight="bold" fill="#334155">~119 s</text>
+<text x="1769" y="226" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369A1">Query range</text>
+<text x="1769" y="248" text-anchor="middle" font-size="17" font-weight="bold" fill="#334155">0.1 – 7.6 s</text>
+<text x="1982" y="226" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369A1">Software</text>
+<text x="1982" y="248" text-anchor="middle" font-size="17" font-weight="bold" fill="#334155">Fuseki 6.0.0</text>
+<rect x="5" y="290" width="2090" height="80" rx="4" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+<text x="15" y="308" text-anchor="start" font-size="13" font-weight="bold" fill="#6B7280">Pipeline notes:</text>
+<text x="15" y="325" text-anchor="start" font-size="12" font-weight="normal" fill="#6B7280">• 934,806 distinct Birth individuals after TDB2 deduplication (1 duplicate birth_id across annual Parquet files)</text>
+<text x="15" y="347" text-anchor="start" font-size="12" font-weight="normal" fill="#6B7280">• Pipeline throughput: 4,439 births/s  |  Conversion: ~211 s  |  TDB2 load: ~119 s  |  Total: ~330 s</text>
+<text x="1050" y="325" text-anchor="start" font-size="12" font-weight="normal" fill="#6B7280">• Extreme heat (ExtremeHeatExposure): Tmax &gt; 35°C on ≥ 1 day during T3 (absolute threshold, uniform across municipalities)</text>
+<text x="1050" y="347" text-anchor="start" font-size="12" font-weight="normal" fill="#6B7280">• Hardware: AMD Ryzen 9 3900X (24 threads), 64 GB RAM, Ubuntu Linux  |  Dataset: Goiás state, Brazil, 2015–2024</text>
+</svg>
