@@ -1,40 +1,41 @@
 cff-version: 1.2.0
-message: "If you use this ontology or dataset, please cite it as below."
-type: dataset
-title: "PerinatalKG: A Knowledge Graph for Perinatal Health and Climate in Brazil"
-version: 0.1.0-dev
-date-released: 2026-04-29
-url: "https://github.com/clarimar/perinatalkg"
-repository-code: "https://github.com/clarimar/perinatalkg"
-
+message: "If you use this software, please cite it as below."
+type: software
+title: "PerinatalKG: An OWL 2 Knowledge Graph for Perinatal Health Data Integration"
+version: 0.3.0
+date-released: 2026-06-08
+doi: 10.5281/zenodo.20601255
+url: https://github.com/clarimar/perinatalkg
+license: Apache-2.0
 authors:
-  - family-names: "Coelho"
-    given-names: "Clarimar José"
-    email: "clarimarc@gmail.com"
-    affiliation: "Federal University of Goiás"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-    
-  - family-names: "Coelho"
-    given-names: "Guilherme"
-    affiliation: "University of Campinas"
-
+  - family-names: Coelho
+    given-names: Clarimar José
+    affiliation: "Pontifícia Universidade Católica de Goiás (PUC Goiás), Goiânia, GO, Brazil"
+  - family-names: Coelho
+    given-names: Guilherme
+    affiliation: "Universidade Estadual de Campinas (UNICAMP/FCM), Campinas, SP, Brazil"
 keywords:
   - knowledge graph
+  - OWL 2 ontology
   - perinatal health
-  - climate change
-  - Brazil
-  - RDF
-  - OWL
-  - semantic web
-  - linked data
   - SINASC
-  - epidemiology
-
-license: Apache-2.0
-
+  - SPARQL
+  - semantic web
+  - Brazil
+  - Goiás
 abstract: >
-  PerinatalKG is a large-scale knowledge graph integrating 27 million
-  Brazilian live births (2015-2024) with climate exposure data, neonatal
-  mortality records, and municipal socioeconomic indicators. Built using
-  RDF/OWL formal ontologies, it provides the first national-scale linked
-  dataset for perinatal climate epidemiology in Latin America.
+  PerinatalKG is an OWL 2 knowledge graph integrating Brazilian perinatal
+  (SINASC), climatic (BR-DWGD), mortality (SIM), and socioeconomic (IBGE)
+  data. Proof-of-concept deployment covers Goiás state (2015–2024):
+  934,806 births, 13,334,157 RDF triples, served via Apache Jena Fuseki 6.0.0.
+references:
+  - type: article
+    authors:
+      - family-names: Coelho
+        given-names: Clarimar José
+      - family-names: Coelho
+        given-names: Guilherme
+    title: "PerinatalKG: An OWL 2 Knowledge Graph for Perinatal Health Data Integration — A Proof of Concept with Goiás State, Brazil"
+    journal: "Journal of Biomedical Informatics"
+    status: under-review
+    year: 2026
