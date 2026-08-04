@@ -11,9 +11,19 @@ authors:
   - family-names: Coelho
     given-names: Clarimar José
     affiliation: "Pontifícia Universidade Católica de Goiás (PUC Goiás), Goiânia, GO, Brazil"
+    orcid: "https://orcid.org/0000-0002-5163-2986"
   - family-names: Coelho
     given-names: Guilherme
     affiliation: "Universidade Estadual de Campinas (UNICAMP/FCM), Campinas, SP, Brazil"
+    orcid: "https://orcid.org/0000-0003-3649-9825"
+  - family-names: França
+    given-names: Breno Bernard Nicolau de
+    affiliation: "Instituto de Computação, Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
+    orcid: "https://orcid.org/0000-0002-4531-1473"
+  - family-names: Pacagnella
+    given-names: Rodolfo de Carvalho
+    affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
+    orcid: "https://orcid.org/0000-0002-5739-0009"
 keywords:
   - knowledge graph
   - OWL 2 ontology
@@ -35,6 +45,10 @@ references:
         given-names: Clarimar José
       - family-names: Coelho
         given-names: Guilherme
+      - family-names: França
+        given-names: Breno Bernard Nicolau de
+      - family-names: Pacagnella
+        given-names: Rodolfo de Carvalho
     title: "PerinatalKG: An OWL 2 Knowledge Graph for Perinatal Health Data Integration — A Proof of Concept with Goiás State, Brazil"
     journal: "Journal of Biomedical Informatics"
     status: under-review
