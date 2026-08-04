@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20601255.svg)](https://doi.org/10.5281/zenodo.20601255)
+
 # PerinatalKG
 
 > A large-scale Knowledge Graph integrating 27 million Brazilian births (2015-2024) with climate, mortality, and socioeconomic data using RDF/OWL formal ontologies.
