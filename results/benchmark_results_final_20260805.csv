@@ -1,0 +1,10 @@
+query_id,description,sparql_result,sparql_n,sparql_mean_s,sparql_median_s,sparql_sd_s,sparql_min_s,sparql_max_s,sql_result,sql_n,sql_mean_s,sql_median_s,sql_sd_s,sql_min_s,sql_max_s,speedup_sparql_vs_sql
+Q1_total_triples,Total count (triples vs rows),13334157,10,2.2643,2.263,0.0146,2.2398,2.2905,934806,10,0.0036,0.0037,0.0005,0.003,0.0045,628.97
+Q2_birth_count,COUNT of Birth individuals,934806,10,0.8279,0.8236,0.0127,0.8124,0.8585,934806,10,0.0037,0.0038,0.0004,0.003,0.0044,223.76
+Q3_preterm_count,COUNT of preterm births (<37w),101287,10,0.1055,0.1042,0.0061,0.0982,0.1168,101287,10,0.0065,0.0068,0.0009,0.0048,0.0076,16.23
+Q4_term_count,COUNT of term births (37-41w),815094,10,0.8033,0.8023,0.0095,0.7896,0.8145,815094,10,0.0083,0.0083,0.0005,0.0073,0.0092,96.78
+Q5_postterm_count,COUNT of post-term births (>=42w),18425,10,0.0258,0.0257,0.0004,0.0253,0.0266,18425,10,0.0071,0.0072,0.0005,0.0058,0.0077,3.63
+Q6_lbw_count,COUNT of low birth weight (<2500g),83660,10,0.0949,0.0926,0.0054,0.0916,0.1093,83660,10,0.0074,0.0074,0.0006,0.0066,0.0082,12.82
+Q7_extreme_heat,COUNT of extreme heat exposure T3,387012,10,1.8981,2.1761,0.793,0.5112,2.6487,387012,10,0.0041,0.0041,0.0001,0.004,0.0044,462.95
+Q8_join_preterm_heat_municipality,"JOIN: preterm births x extreme heat T3 x municipality (GROUP BY, 3 dimensions)",245 municipalities,10,0.4302,0.4301,0.0046,0.4226,0.4357,245 municipalities,10,0.0097,0.0095,0.0011,,,44.3
+Q9_avg_birthweight,AVG birth weight,3141.155056622100698121725214,10,0.3499,0.3363,0.0316,0.3228,0.4247,3141.155056622101,10,0.006,0.0061,0.0004,0.0052,0.0064,58.32
