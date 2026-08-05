@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
-title: "PerinatalKG: An OWL 2 Knowledge Graph for Perinatal Health Data Integration"
+title: "PerinatalKG: An OWL 2 Knowledge Graph Integrating Population-Level Birth Records with Climate and Socioeconomic Data"
 version: 0.3.0
 date-released: 2026-06-08
 doi: 10.5281/zenodo.20601255
@@ -9,21 +9,27 @@ url: https://github.com/clarimar/perinatalkg
 license: Apache-2.0
 authors:
   - family-names: Coelho
-    given-names: Clarimar José
-    affiliation: "Pontifícia Universidade Católica de Goiás (PUC Goiás), Goiânia, GO, Brazil"
+    given-names: "Clarimar José"
+    affiliation: "Pontifícia Universidade Católica de Goiás (PUC Goiás), Área V — Escola de Ciências Exatas e da Computação, Av. Universitária 1.440, Setor Universitário, Goiânia, GO 74605-010, Brazil"
     orcid: "https://orcid.org/0000-0002-5163-2986"
+  - family-names: "Charles M'poca"
+    given-names: Charles
+    affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
+  - family-names: Kassada
+    given-names: "Danielle Satie"
+    affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
+  - family-names: "França"
+    given-names: "Breno Bernard Nicolau de"
+    affiliation: "Instituto de Computação, Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
+    orcid: "https://orcid.org/0000-0002-4531-1473"
+  - family-names: Pacagnella
+    given-names: "Rodolfo de Carvalho"
+    affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
+    orcid: "https://orcid.org/0000-0002-5739-0009"
   - family-names: Coelho
     given-names: Guilherme
     affiliation: "Universidade Estadual de Campinas (UNICAMP/FCM), Campinas, SP, Brazil"
     orcid: "https://orcid.org/0000-0003-3649-9825"
-  - family-names: França
-    given-names: Breno Bernard Nicolau de
-    affiliation: "Instituto de Computação, Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
-    orcid: "https://orcid.org/0000-0002-4531-1473"
-  - family-names: Pacagnella
-    given-names: Rodolfo de Carvalho
-    affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
-    orcid: "https://orcid.org/0000-0002-5739-0009"
 keywords:
   - knowledge graph
   - OWL 2 ontology
@@ -32,24 +38,33 @@ keywords:
   - SPARQL
   - semantic web
   - Brazil
-  - Goiás
+  - climate exposure
+  - birth records
 abstract: >
-  PerinatalKG is an OWL 2 knowledge graph integrating Brazilian perinatal
-  (SINASC), climatic (BR-DWGD), mortality (SIM), and socioeconomic (IBGE)
-  data. Proof-of-concept deployment covers Goiás state (2015–2024):
-  934,806 births, 13,334,157 RDF triples, served via Apache Jena Fuseki 6.0.0.
+  PerinatalKG is an OWL 2 knowledge graph integrating Brazilian
+  population-level birth records (SINASC) with gridded climate data
+  (BR-DWGD) and municipal socioeconomic indicators (IBGE) under a
+  formal ontology aligned with BFO and mapped to SNOMED-CT, ICD-10,
+  and LOINC. SIM neonatal mortality data were used for linkage
+  validation only and are not integrated into the knowledge graph.
+  Proof-of-concept: Goias state (2015-2024), 934,806 births,
+  13,334,157 RDF triples, Apache Jena Fuseki 6.0.0.
 references:
   - type: article
     authors:
       - family-names: Coelho
-        given-names: Clarimar José
+        given-names: "Clarimar José"
+      - family-names: "Charles M'poca"
+        given-names: Charles
+      - family-names: Kassada
+        given-names: "Danielle Satie"
+      - family-names: "França"
+        given-names: "Breno Bernard Nicolau de"
+      - family-names: Pacagnella
+        given-names: "Rodolfo de Carvalho"
       - family-names: Coelho
         given-names: Guilherme
-      - family-names: França
-        given-names: Breno Bernard Nicolau de
-      - family-names: Pacagnella
-        given-names: Rodolfo de Carvalho
-    title: "PerinatalKG: An OWL 2 Knowledge Graph for Perinatal Health Data Integration — A Proof of Concept with Goiás State, Brazil"
+    title: "PerinatalKG: design and evaluation of an OWL 2 architecture for integrating population-level birth records with climate and socioeconomic data"
     journal: "Journal of Biomedical Informatics"
     status: under-review
     year: 2026
