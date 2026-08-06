@@ -9,9 +9,9 @@ url: https://github.com/clarimar/perinatalkg
 license: Apache-2.0
 authors:
   - family-names: Coelho
-    given-names: "Clarimar José"
-    affiliation: "Pontifícia Universidade Católica de Goiás (PUC Goiás), Área V — Escola de Ciências Exatas e da Computação, Av. Universitária 1.440, Setor Universitário, Goiânia, GO 74605-010, Brazil"
-    orcid: "https://orcid.org/0000-0002-5163-2986"
+    given-names: Guilherme
+    affiliation: "Universidade Estadual de Campinas (UNICAMP/FCM), Campinas, SP, Brazil"
+    orcid: "https://orcid.org/0000-0003-3045-4057"
   - family-names: "Charles M'poca"
     given-names: Charles
     affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
@@ -27,9 +27,9 @@ authors:
     affiliation: "Universidade Estadual de Campinas (UNICAMP), Campinas, SP, Brazil"
     orcid: "https://orcid.org/0000-0002-5739-0009"
   - family-names: Coelho
-    given-names: Guilherme
-    affiliation: "Universidade Estadual de Campinas (UNICAMP/FCM), Campinas, SP, Brazil"
-    orcid: "https://orcid.org/0000-0003-3649-9825"
+    given-names: "Clarimar José"
+    affiliation: "Pontifícia Universidade Católica de Goiás (PUC Goiás), Área V — Escola de Ciências Exatas e da Computação, Av. Universitária 1.440, Setor Universitário, Goiânia, GO 74605-010, Brazil"
+    orcid: "https://orcid.org/0000-0002-5163-2986"
 keywords:
   - knowledge graph
   - OWL 2 ontology
@@ -53,7 +53,7 @@ references:
   - type: article
     authors:
       - family-names: Coelho
-        given-names: "Clarimar José"
+        given-names: Guilherme
       - family-names: "Charles M'poca"
         given-names: Charles
       - family-names: Kassada
@@ -63,7 +63,7 @@ references:
       - family-names: Pacagnella
         given-names: "Rodolfo de Carvalho"
       - family-names: Coelho
-        given-names: Guilherme
+        given-names: "Clarimar José"
     title: "PerinatalKG: design and evaluation of an OWL 2 architecture for integrating population-level birth records with climate and socioeconomic data"
     journal: "Journal of Biomedical Informatics"
     status: under-review
