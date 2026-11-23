@@ -63,3 +63,12 @@ Format: Keep a Changelog. Versioning: Semantic Versioning.
 - GitHub repository and version control
 - OWL 2 ontology scaffold (35 classes, BFO alignment)
 - Setup scripts for pipeline infrastructure
+
+---
+
+## [0.3.1] — 2026-11-23
+
+### Fixed
+- Ontology ExtremeHeatExposure IAO:0000115: "mean temperature / 90th percentile" →
+  "daily maximum temperature (Tmax) > 35 °C (absolute threshold; BR-DWGD dataset)"
+- owl:versionInfo, owl:versionIRI and pav:version bumped from 0.3.0 to 0.3.1

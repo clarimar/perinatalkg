@@ -46,7 +46,7 @@ pkg:ElderlyMother a owl:Class ;
 pkg:ExtremeHeatExposure a owl:Class ;
     rdfs:label "Extreme Heat Exposure"@en,
         "Exposicao a Calor Extremo"@pt ;
-    iao:0000115 "A climate exposure process where mean temperature exceeds the 90th percentile."@en ;
+    iao:0000115 "A climate exposure process where daily maximum temperature (Tmax) exceeds 35 °C (absolute threshold; BR-DWGD dataset)."@en ;
     rdfs:subClassOf pkg:HeatExposure .
 
 pkg:ExtremeLowBirthWeight a owl:Class ;
@@ -93,12 +93,12 @@ pkg:PerinatalKGOntology a owl:Ontology ;
         "Ontologia PerinatalKG"@pt ;
     pav:createdOn "2026-04-29"^^xsd:date ;
     pav:lastUpdatedOn "2026-05-27"^^xsd:date ;
-    pav:version "0.3.0" ;
+    pav:version "0.3.1" ;
     oboInOwl:default_namespace "PKG" ;
     oboInOwl:hasOBONamespace "perinatalkg" ;
     rdfs:seeAlso <https://github.com/clarimar/perinatalkg> ;
-    owl:versionIRI pkg:0.3.0 ;
-    owl:versionInfo "0.3.0" .
+    owl:versionIRI pkg:0.3.1 ;
+    owl:versionInfo "0.3.1" .
 
 pkg:PostTermBirth a owl:Class ;
     rdfs:label "Post-term Birth"@en,
